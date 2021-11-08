@@ -1,0 +1,87 @@
+// badly written gech primes
+// calculator from 0 to limit (n).
+//
+// gretea gech_primes.tea
+
+import tea.green.fmt
+import tea.green.string
+import tea.green.type
+import tea.black.vector
+import tea.green.log
+import tea.green.color
+import tea.green.char
+import tea.black.vector
+import tea.black.sstream
+
+`set limit = 1000
+
+fn is_prime(val: uint64) = bool {
+    if val < 2 { . false; }
+    if val == 2 { . true; }
+    if val % 2 == 0 { . false; }
+
+    var mut i: int64 = 3
+
+    while i * i <= val {
+        if val % i == 0 { . false; }
+        i += 2
+    } . true;
+}
+
+fn main() = int {
+    var mut prime: []uint64 = [[ unsafe ]]
+    var mut gech: []uint64 = [[ unsafe ]]
+
+    var mut i: uint64 = 0
+
+    while i < limit {
+        if is_prime(i) {
+            cpp_vector#push_back(prime, i);
+        }
+
+        i += 1
+    }
+
+    var mut f = 1
+
+    while f < limit - 1 {
+        var mut val: uint64 = 0
+        var mut found = false
+        val = (cpp_vector#at(prime, f) * 2) - cpp_vector#at(prime, f - 1);
+
+        if is_prime(val - 2) {
+            for &value in gech {
+                if value == val - 2 {
+                    found = true
+                    break
+                }
+            }
+
+            if !found { cpp_vector#push_back(gech, val - 2); }
+        } else if is_prime(val) {
+            for &value in gech {
+                if value == val {
+                    found = true
+                    break
+                }
+            }
+
+            if !found { cpp_vector#push_back(gech, val); }
+        } else if is_prime(val + 2) {
+            for &value in gech {
+                if value == val + 2 {
+                    found = true
+                    break
+                }
+            }
+
+            if !found { cpp_vector#push_back(gech, val + 2); }
+        }
+
+        f += 1
+    }
+
+    for &arg in gech {
+        fmt#println(arg)
+    }
+}
