@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<br>
+<div style="text-align: center"><div style="display: inline; color:rgb(170, 85, 0);">
+Fegeya&nbsp;Komitesi</div>&nbsp;Resm<div style="display: inline; color:rgb(0, 0, 170);">
+i</div>&nbsp;Gazetesi</div>
+<br>
+<br>
+<div style="text-align: left"><br>
+Tarih:&nbsp;1/0<div style="display: inline; color:rgb(255, 255, 85);">
+9</div>/21<br>
+<br>
+<div style="display: inline; color:rgb(255, 255, 85);">
+Ele&nbsp;alinacak&nbsp;konular</div>:<br>
+&nbsp;*&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+ffetch</div>&nbsp;(syf:&nbsp;2)<br>
+&nbsp;*&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+climage</div>&nbsp;(syf:&nbsp;3-4)<br>
+&nbsp;*&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+fashtsum</div>&nbsp;(syf:&nbsp;5-6)<br>
+&nbsp;*&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+typecode</div>&nbsp;(syf:&nbsp;6-7)<br>
+<br>
+<div style="display: inline; color:rgb(255, 255, 85);">
+Kose&nbsp;yazi/lari</div>:<br>
+&nbsp;*&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+Jetbrains&nbsp;IDEA</div>&nbsp;tabanli&nbsp;tgolar&nbsp;(ide)&nbsp;icin&nbsp;yeni&nbsp;versiyon.&nbsp;(syf:&nbsp;8)<br>
+&nbsp;*&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+gechprng</div>&nbsp;de&nbsp;ne&nbsp;yahu!?&nbsp;(syf:&nbsp;9)<br>
+<br>
+<div style="display: inline; color:rgb(255, 255, 85);">
+Ek</div>:<br>
+&nbsp;*&nbsp;Sunucuda&nbsp;yapilan&nbsp;degisikliklerin&nbsp;siralanmasi.<br>
+&nbsp;*&nbsp;Kucuk&nbsp;degisiklikler.<br>
+<br>
+<br>
+<div style="display: inline; color:rgb(170, 0, 0);">
+ffetch</div>&nbsp;ne,&nbsp;ha?<br>
+</div>
+------------<div style="display: inline"><br>
+<div style="display: inline; color:rgb(170, 0, 0);">
+ffetch</div>,&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+curl4cpp</div>&nbsp;kullanilarak&nbsp;yazilmis&nbsp;veri&nbsp;cekmek&nbsp;icin<br>
+kullanilabilecek&nbsp;bir&nbsp;arac.<br>
+<br>
+biz&nbsp;bununla&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+ffetch</div>'in&nbsp;</div>
+elite&nbsp;betigini&nbsp;ekrana&nbsp;yansitabiliriz:<br>
+&nbsp;&nbsp;https://raw.githubusercontent.com/ferhatgec/ffetch/master/Elitefile<br>
+<br>
+&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+ffetch</div>&nbsp;{baglanti}<br>
+<br>
+onun&nbsp;disinda,&nbsp;ekrana&nbsp;yansitmak&nbsp;yerine&nbsp;dosyaya&nbsp;yazdirabiliriz:<br>
+&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+ffetch</div>&nbsp;to={dosya}&nbsp;{baglanti}<br>
+<br>
+acikcasi&nbsp;asiri&nbsp;rahat,&nbsp;bayagi&nbsp;sade&nbsp;bir&nbsp;arac.&nbsp;bu&nbsp;kadar.<br>
+<br>
+"curl4cpp&nbsp;kullanarak&nbsp;benzer&nbsp;seyi&nbsp;nasil&nbsp;yapabilirim?!"&nbsp;diyorsaniz,&nbsp;ornek&nbsp;kullanim:<br>
+&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+#include</div>&nbsp;<iostream><br>
+&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+#include</div>&nbsp;<string><br>
+&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+#include</div>&nbsp;"<div style="display: inline; color:rgb(255, 255, 85);">
+curl4.hpp</div>"<br>
+<br>
+&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(255, 85, 85);">
+int</div>&nbsp;main()&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="text-align: left">curl4::CURL4</div>&nbsp;init&nbsp;=&nbsp;<div style="text-align: left">curl4::easy::init</div>();<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(255, 255, 85);">
+std::string</div>&nbsp;val;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;init.setopt(CURLOPT_URL,&nbsp;"https://raw.githubusercontent.com/ferhatgec/bufsize/master/example.cpp");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;init.setopt(CURLOPT_WRITEFUNCTION,&nbsp;curl4::easy::writefunc);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;init.setopt(CURLOPT_WRITEDATA,&nbsp;&val);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CURLcode&nbsp;res&nbsp;=&nbsp;curl4::easy::perform(init);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(255, 85, 85);">
+std::cout</div>&nbsp;<<&nbsp;val&nbsp;<<&nbsp;'\n';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+return</div>&nbsp;0;<br>
+&nbsp;&nbsp;&nbsp;}<br>
+<br>
+Sunucumuzdan&nbsp;birkac&nbsp;alintilar:<br>
+============<br>
+„<div style="display: inline; color:rgb(85, 85, 255);">
+veri&nbsp;cekmek&nbsp;icin&nbsp;wget&nbsp;ya&nbsp;da&nbsp;direkt&nbsp;curl&nbsp;yerine&nbsp;bununla&nbsp;bir&nbsp;seyler&nbsp;yazabilirim</div>“&nbsp;-&nbsp;@ferhatgec<br>
+„<div style="display: inline; color:rgb(85, 85, 255);">
+bunun&nbsp;icin&nbsp;basit&nbsp;bir&nbsp;arac&nbsp;yazdim.&nbsp;ffetch,&nbsp;asiri&nbsp;basit.&nbsp;sadece&nbsp;dosyaya&nbsp;yazdirabilir,<br>
+ciktisini&nbsp;alabilirsiniz&nbsp;(simdilik)</div>“&nbsp;-&nbsp;@ferhatgec<br>
+============<br>
+<br>
+Kaynak/lar:<br>
+&nbsp;https://github.com/ferhatgec/ffetch<br>
+&nbsp;https://github.com/ferhatgec/curl4cpp<br>
+<br>
+<div style="display: inline; color:rgb(170, 0, 0);">
+climage</div>&nbsp;neyin&nbsp;nesi?<br>
+<b>------------</b><br>
+<div style="display: inline; color:rgb(170, 0, 0);">
+climage</div>,&nbsp;genel&nbsp;olarak&nbsp;ucbirimde&nbsp;kullanabilmem&nbsp;icin&nbsp;gelistirdigim&nbsp;bir&nbsp;resim&nbsp;formati.<br>
+bayagi&nbsp;kucuk&nbsp;boyutlara&nbsp;sahip&nbsp;(ornek:&nbsp;8x8..64x64)<br>
+<br>
+ornek&nbsp;dosya&nbsp;formati&nbsp;da&nbsp;su&nbsp;sekilde:<br>
+&nbsp;&nbsp;CLImage0&0<br>
+<br>
+&nbsp;&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,<br>
+&nbsp;&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,<br>
+&nbsp;&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+#c0a80b</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+#c0a80b</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,<br>
+&nbsp;&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,<br>
+&nbsp;&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(170, 170, 170);">
+#6868c4</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(170, 170, 170);">
+#6868c4</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,<br>
+&nbsp;&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(170, 170, 170);">
+#6868c4</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(170, 170, 170);">
+#6868c4</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,<br>
+&nbsp;&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(170, 170, 170);">
+#6868c4</div>,&nbsp;<div style="display: inline; color:rgb(170, 170, 170);">
+#6868c4</div>,&nbsp;<div style="display: inline; color:rgb(170, 170, 170);">
+#6868c4</div>,&nbsp;<div style="display: inline; color:rgb(170, 170, 170);">
+#6868c4</div>,&nbsp;<div style="display: inline; color:rgb(170, 170, 170);">
+#6868c4</div>,&nbsp;<div style="display: inline; color:rgb(170, 170, 170);">
+#6868c4</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,<br>
+&nbsp;&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+#0000FF</div>,<br>
+<br>
+<div style="display: inline; color:rgb(170, 0, 0);">
+climage</div>&nbsp;direkt&nbsp;(<div style="display: inline; color:rgb(170, 0, 0);">
+r</div>,&nbsp;<div style="display: inline; color:rgb(0, 170, 0);">
+g</div>,&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+b</div>)&nbsp;tarzinda&nbsp;renkleri&nbsp;cikartmak&nbsp;yerine,<br>
+onaltılık&nbsp;tabandan&nbsp;(<div style="display: inline; color:rgb(170, 0, 0);">
+r</div>,&nbsp;<div style="display: inline; color:rgb(0, 170, 0);">
+g</div>,&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+b</div>)&nbsp;degerlerini&nbsp;cikartir.<br>
+<br>
+isaretcileyicileri&nbsp;de&nbsp;soyle:<br>
+&nbsp;&nbsp;SOF&nbsp;=&nbsp;0x43,<br>
+&nbsp;&nbsp;SOF2&nbsp;=&nbsp;0x4C,<br>
+&nbsp;&nbsp;SOF3&nbsp;=&nbsp;0x49,<br>
+&nbsp;&nbsp;SOF4&nbsp;=&nbsp;0x6D,<br>
+&nbsp;&nbsp;SOF5&nbsp;=&nbsp;0x61,<br>
+&nbsp;&nbsp;SOF6&nbsp;=&nbsp;0x67,<br>
+&nbsp;&nbsp;SOF7&nbsp;=&nbsp;0x65,<br>
+<br>
+&nbsp;&nbsp;SOW&nbsp;=&nbsp;0x02,<br>
+&nbsp;&nbsp;SOH&nbsp;=&nbsp;0x26,<br>
+<br>
+&nbsp;&nbsp;Pixel8&nbsp;=&nbsp;0x30<br>
+&nbsp;&nbsp;Pixel16&nbsp;=&nbsp;0x31<br>
+&nbsp;&nbsp;Pixel32&nbsp;=&nbsp;0x32<br>
+&nbsp;&nbsp;Pixel64&nbsp;=&nbsp;0x33<br>
+<br>
+&nbsp;&nbsp;ColorStart&nbsp;=&nbsp;0x23<br>
+&nbsp;&nbsp;Continue&nbsp;=&nbsp;0x2C<br>
+<br>
+2&nbsp;ustte&nbsp;gordugunuz&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+climage</div>&nbsp;betigini&nbsp;simdi&nbsp;calistiralim:<br>
+&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+climage</div>&nbsp;{dosya}<br>
+<br>
+&nbsp;&nbsp;aha&nbsp;da&nbsp;ciktisi:<br>
+<br>
+&nbsp;&nbsp;░░░░░░░░░░░░░░░░<br>
+&nbsp;&nbsp;░░░░░░░░░░░░░░░░<br>
+&nbsp;&nbsp;░░░░░░░░░░░░░░░░<br>
+&nbsp;&nbsp;░░░░░░░░░░░░░░░░<br>
+&nbsp;&nbsp;░░░░░░░░░░░░░░░░<br>
+&nbsp;&nbsp;░░░░░░░░░░░░░░░░<br>
+&nbsp;&nbsp;░░░░░░░░░░░░░░░░<br>
+&nbsp;&nbsp;░░░░░░░░░░░░░░░░<br>
+<br>
+&nbsp;&nbsp;(hicbir&nbsp;sey&nbsp;goremiyor&nbsp;musunuz?<br>
+&nbsp;&nbsp;tikla:&nbsp;https://github.com/ferhatgec/climage/blob/master/resources/window.png?raw=true)<br>
+<br>
+&nbsp;&nbsp;"o&nbsp;kabugun&nbsp;ismi&nbsp;ne?"&nbsp;diyorsaniz,&nbsp;scrift<br>
+&nbsp;&nbsp;ama&nbsp;biraz&nbsp;daha&nbsp;ozellestirilmis&nbsp;bir&nbsp;sekilde&nbsp;kullaniyorum,&nbsp;o&nbsp;da&nbsp;dotscrift<br>
+&nbsp;&nbsp;(rounded-arrow&nbsp;temasi)<br>
+<br>
+bunun&nbsp;python&nbsp;icin&nbsp;de&nbsp;bir&nbsp;sureklemesi&nbsp;var,&nbsp;adi&nbsp;ustunde:&nbsp;climage.py<br>
+<br>
+gech&nbsp;(fegeya)&nbsp;felsefesine&nbsp;de&nbsp;tam&nbsp;anlamiyla&nbsp;saygili&nbsp;:)<br>
+<br>
+Kaynak/lar:<br>
+&nbsp;https://github.com/ferhatgec/climage<br>
+&nbsp;https://github.com/ferhatgec/climage.py<br>
+&nbsp;https://github.com/ferhatgec/scrift<br>
+&nbsp;https://github.com/ferhatgec/dotscrift<br>
+<br>
+<div style="display: inline; color:rgb(170, 85, 0);">
+fashtsum</div>&nbsp;ne?&nbsp;tamam&nbsp;fasht'i&nbsp;onceki&nbsp;yayimdan&nbsp;biliyoruz.<br>
+<b>------------</b><br>
+<div style="display: inline; color:rgb(170, 85, 0);">
+fashtsum</div>&nbsp;=&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+fasht</div>&nbsp;+&nbsp;<b>dosyadan&nbsp;cekilmis&nbsp;veri</b><br>
+<br>
+kisaca&nbsp;bu&nbsp;kadar&nbsp;ama&nbsp;<i>birden&nbsp;fazla&nbsp;komut&nbsp;satiri&nbsp;argumanlarini&nbsp;da</i>&nbsp;destekliyor.<br>
+<br>
+ancak&nbsp;bayagi&nbsp;yavas,&nbsp;"neden?"&nbsp;diyorsaniz&nbsp;eger:<br>
+&nbsp;*&nbsp;herhangi&nbsp;bir&nbsp;veri&nbsp;sikistirma&nbsp;algoritmasi&nbsp;kullanmadik,&nbsp;deneysel&nbsp;o&nbsp;yuzden.<br>
+&nbsp;*&nbsp;yok.<br>
+<br>
+Kaynak/lar:<br>
+&nbsp;https://github.com/ferhatgec/fasht<br>
+&nbsp;https://github.com/ferhatgec/fashtsum<br>
+<br>
+<div style="display: inline; color:rgb(0, 170, 170);">typecode</div>&nbsp;ne?<br>
+<b>------------</b><br>
+su&nbsp;ustunden&nbsp;biraz&nbsp;zaman&nbsp;gecen&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+github</div>'in&nbsp;benioku&nbsp;dosyalarini&nbsp;@kullaniciadi&nbsp;seklinde<br>
+acilan&nbsp;depolar&nbsp;icin&nbsp;profil&nbsp;ana&nbsp;sayfasinda&nbsp;yansittigini&nbsp;biliyoruz.&nbsp;yok&nbsp;neymis<br>
+efendim&nbsp;"x,&nbsp;y,&nbsp;z&nbsp;konusunda&nbsp;bilgiliyim.&nbsp;w,&nbsp;q&nbsp;bilgim&nbsp;var"&nbsp;demenin&nbsp;bayagi&nbsp;yer<br>
+kaplayacagini&nbsp;ve&nbsp;gereksiz&nbsp;gorunecegini,&nbsp;insanlarin&nbsp;bunlari&nbsp;okumadigini&nbsp;saniyorum&nbsp;ki<br>
+cogumuz&nbsp;biliyoruzdur.<br>
+<br>
+<div style="display: inline; color:rgb(0, 170, 170);">typecode</div>&nbsp;ise&nbsp;kendinizi&nbsp;yansitmanin&nbsp;basit&nbsp;bir&nbsp;hali,&nbsp;su&nbsp;kod&nbsp;ile&nbsp;bir&nbsp;kisilik&nbsp;kendini<br>
+yansitmis&nbsp;olabilir:<br>
+&nbsp;&nbsp;$%///*++;%////*++;///++++;///*++;///*+++;-%////*;$@/*+;+++;///;@?-++;%/*++;?<br>
+<br>
+hemen&nbsp;sunu&nbsp;diyebilirsiniz:&nbsp;"burada&nbsp;gorunene&nbsp;gore&nbsp;noktali&nbsp;virgul&nbsp;bir&nbsp;seyleri&nbsp;degistiriyor".<br>
+&nbsp;-&nbsp;evet&nbsp;dogru!<br>
+<br>
+oncelikle&nbsp;ciktisini&nbsp;alalim:<br>
+&nbsp;&nbsp;Languages:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;FlaScript<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Gretea<br>
+&nbsp;&nbsp;&nbsp;&nbsp;C<br>
+&nbsp;&nbsp;&nbsp;&nbsp;C++<br>
+&nbsp;&nbsp;&nbsp;&nbsp;C++/CLI<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Python<br>
+<br>
+&nbsp;&nbsp;Branches:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Computer&nbsp;Science<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Programming&nbsp;languages<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Programming&nbsp;languages&nbsp;and&nbsp;compilers<br>
+<br>
+&nbsp;&nbsp;Operating&nbsp;Systems:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Pop!_OS<br>
+&nbsp;&nbsp;&nbsp;&nbsp;prismBSD<br>
+<br>
+bundan&nbsp;sonra&nbsp;hemen&nbsp;sunu&nbsp;diyebilirsiniz:&nbsp;"$,&nbsp;@&nbsp;ve&nbsp;?&nbsp;kategoriler&nbsp;gibime&nbsp;geliyor"<br>
+&nbsp;-&nbsp;evet&nbsp;dogru!<br>
+<br>
+tanimlanmis&nbsp;karakterler&nbsp;sunlar:<br>
+&nbsp;&nbsp;Lang&nbsp;=&nbsp;'$'<br>
+&nbsp;&nbsp;Branch&nbsp;=&nbsp;'@'<br>
+&nbsp;&nbsp;OS&nbsp;=&nbsp;'?'<br>
+<br>
+&nbsp;&nbsp;Push&nbsp;=&nbsp;'+'<br>
+&nbsp;&nbsp;Push5&nbsp;=&nbsp;'*'<br>
+&nbsp;&nbsp;Push10&nbsp;=&nbsp;'/'<br>
+&nbsp;&nbsp;Push50&nbsp;=&nbsp;'%'<br>
+&nbsp;&nbsp;Push100&nbsp;=&nbsp;'-'<br>
+&nbsp;&nbsp;Print&nbsp;=&nbsp;';'<br>
+<br>
+3&nbsp;farkli&nbsp;kategori&nbsp;icin&nbsp;3&nbsp;farkli&nbsp;vektor&nbsp;var&nbsp;elimizde,<br>
+bu&nbsp;vektorler&nbsp;ustteki&nbsp;'diller',&nbsp;'dallar'&nbsp;ve&nbsp;'isletim&nbsp;sistemleri'&nbsp;kategorileriyle&nbsp;alakali<br>
+verileri&nbsp;icerir.<br>
+<br>
+biz&nbsp;her&nbsp;push5..push100&nbsp;karakterlerini&nbsp;kullanirsak,&nbsp;elimizdeki&nbsp;dizin&nbsp;ona&nbsp;bagli&nbsp;olarak&nbsp;artar,<br>
+noktali&nbsp;virgul&nbsp;kullanarak&nbsp;kendimize&nbsp;ait&nbsp;3&nbsp;vektorden&nbsp;birine&nbsp;atariz&nbsp;ve&nbsp;o&nbsp;dizini&nbsp;sifirlariz.<br>
+<br>
+3&nbsp;kategori&nbsp;icin&nbsp;3&nbsp;farkli&nbsp;vector&nbsp;var.<br>
+<br>
+en&nbsp;sonunda&nbsp;ise&nbsp;biz&nbsp;bunu&nbsp;yazdirarak&nbsp;kendimizi&nbsp;tanitabiliriz.<br>
+<br>
+<br>
+Sunucumuzdan&nbsp;birkac&nbsp;alintilar:<br>
+============<br>
+„<div style="display: inline; color:rgb(85, 85, 255);">
+kendinizi&nbsp;cs&nbsp;alaninda&nbsp;az&nbsp;kodla&nbsp;fazla&nbsp;sekilde&nbsp;tanitabilmenize&nbsp;yarayan,<br>
+bakinca&nbsp;kimsenin&nbsp;anlayamayacagi&nbsp;ama&nbsp;mantiginin&nbsp;basit&nbsp;oldu&nbsp;bir&nbsp;yorumlayici</div>“&nbsp;-&nbsp;@ferhatgec<br>
+============<br>
+<br>
+bunun&nbsp;da&nbsp;c++,&nbsp;rust&nbsp;ve&nbsp;python&nbsp;sureklemeleri&nbsp;var.<br>
+<br>
+cogu&nbsp;proje&nbsp;gibi&nbsp;bu&nbsp;da&nbsp;gech&nbsp;(fegeya)&nbsp;felsefesine&nbsp;tam&nbsp;uyumlu.<br>
+<br>
+Kaynak/lar:<br>
+&nbsp;&nbsp;https://github.com/ferhatgec/typecode<br>
+&nbsp;&nbsp;https://github.com/ferhatgec/typecode.py<br>
+&nbsp;&nbsp;https://github.com/ferhatgec/typecoders<br>
+<br>
+„Kose&nbsp;yazisi“:&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+Jetbrains&nbsp;IDEA</div>&nbsp;tabanli&nbsp;tgolar&nbsp;(ide)&nbsp;icin&nbsp;yeni&nbsp;versiyon&nbsp;geldi.<br>
+<b>------------</b><br>
+Normalde&nbsp;gazeteye&nbsp;eklemeyi&nbsp;pek&nbsp;planlamiyordum&nbsp;ama&nbsp;ekleyeyim&nbsp;dedim,&nbsp;2.&nbsp;ceyrek&nbsp;icin&nbsp;yeni&nbsp;versiyon&nbsp;olan<br>
+2021.<b>2</b>.1&nbsp;yayinlandi.<br>
+<br>
+mesela&nbsp;<div style="display: inline; color:rgb(255, 255, 85);">
+CLion</div>&nbsp;icin&nbsp;neler&nbsp;eklenmis:<br>
+&nbsp;&nbsp;-&nbsp;oncelikle&nbsp;bunun&nbsp;bir&nbsp;hata&nbsp;giderme&nbsp;surumu&nbsp;oldugunu&nbsp;soylemisler.<br>
+&nbsp;&nbsp;(https://blog.jetbrains.com/clion/2021/08/clion-2021-2-1-bug-fix-update/)<br>
+<br>
+&nbsp;&nbsp;-&nbsp;clangformat&nbsp;icin&nbsp;editor&nbsp;donmasi&nbsp;sorununu&nbsp;cozmusler.<br>
+&nbsp;&nbsp;(https://youtrack.jetbrains.com/issue/CPP-25091)<br>
+<br>
+&nbsp;&nbsp;-&nbsp;yaygin&nbsp;fonksiyon&nbsp;parametreleri&nbsp;donusturme&nbsp;artik&nbsp;kapatilmis,<br>
+&nbsp;&nbsp;ayarlardan&nbsp;etkinlestirebiliyormussunuz.&nbsp;suradan:<br>
+&nbsp;&nbsp;(<div style="display: inline; color:rgb(255, 255, 255);">
+</div>
+Preferences/Settings&nbsp;|&nbsp;Editor&nbsp;|&nbsp;General&nbsp;|&nbsp;Code&nbsp;Folding&nbsp;|&nbsp;Fold&nbsp;by&nbsp;default&nbsp;|&nbsp;C&nbsp;|&nbsp;Template&nbsp;parameters<div style="display: inline"></div>)<br>
+<br>
+&nbsp;&nbsp;-&nbsp;yeni&nbsp;ozellestirme&nbsp;secenekleri&nbsp;eklemisler:<br>
+&nbsp;&nbsp;(<div style="display: inline; color:rgb(255, 255, 255);">
+</div>
+Preferences/Settings&nbsp;|&nbsp;Editor&nbsp;|&nbsp;Code&nbsp;Style&nbsp;|&nbsp;C/C++&nbsp;|&nbsp;Spaces&nbsp;|&nbsp;Before/After&nbsp;‘for’&nbsp;colon/semicolon<div style="display: inline"></div>)<br>
+<br>
+&nbsp;&nbsp;tum&nbsp;notlar&nbsp;burada:<br>
+&nbsp;&nbsp;(https://confluence.jetbrains.com/pages/viewpage.action?pageId=224166222)<br>
+<br>
+&nbsp;&nbsp;-&nbsp;2021.3&nbsp;hedefleri&nbsp;de&nbsp;burada&nbsp;imis:<br>
+&nbsp;&nbsp;(https://blog.jetbrains.com/clion/2021/08/roadmap-clion-2021-3/)<br>
+<br>
+digerleri&nbsp;icin&nbsp;de&nbsp;guncelleme&nbsp;gelmis,&nbsp;mesela&nbsp;PyCharm&nbsp;icin.&nbsp;ilgisi&nbsp;olanlar&nbsp;icin&nbsp;link&nbsp;burada:<br>
+&nbsp;&nbsp;(https://blog.jetbrains.com/pycharm/2021/08/2021-2-1/)<br>
+<br>
+tum&nbsp;guncellemelere&nbsp;ulasabileceginiz&nbsp;yegane&nbsp;blog:<br>
+&nbsp;&nbsp;(https://blog.jetbrains.com/category/news/)<br>
+<br>
+Ve...&nbsp;Son&nbsp;olarak&nbsp;sunucuda&nbsp;yapilan&nbsp;degisiklikler.<br>
+(1/<div style="display: inline; color:rgb(170, 85, 0);">
+08</div>/21‘den&nbsp;1/<div style="display: inline; color:rgb(170, 85, 0);">
+09</div>/21‘e)<br>
+<br>
+Yeni&nbsp;rol/ler&nbsp;eklendi:<br>
+&nbsp;*&nbsp;@Gech&nbsp;ruhu<br>
+&nbsp;*&nbsp;@Yasayan&nbsp;Olu<br>
+&nbsp;*&nbsp;@Steam<br>
+&nbsp;*&nbsp;@donut.<div style="display: inline; color:rgb(0, 0, 170);">
+c</div><br>
+<br>
+Yeni&nbsp;kanal/lar:<br>
+&nbsp;*&nbsp;`#typecode`&nbsp;kanali&nbsp;eklendi.<br>
+&nbsp;*&nbsp;`#climage`&nbsp;kanali&nbsp;eklendi&nbsp;(`#gemini`&nbsp;->&nbsp;`#climage`)<br>
+&nbsp;*&nbsp;`#<i>BAGIR</i>`&nbsp;KANALI&nbsp;EKLENDI.<br>
+<br>
+Kucuk&nbsp;degisiklikler:<br>
+&nbsp;*&nbsp;<div style="display: inline; color:rgb(85, 85, 255);">
+Discord</div>'un&nbsp;yeni&nbsp;degisikliklerini&nbsp;ekledik.<br>
+&nbsp;*&nbsp;Belirli&nbsp;roller&nbsp;<i>ilginc&nbsp;Turkceye</i>&nbsp;cevirildi:<br>
+&nbsp;&nbsp;&nbsp;(cplusplus,&nbsp;cartiarti)<br>
+&nbsp;&nbsp;&nbsp;(csharp,&nbsp;ckeskin&nbsp;gibi&nbsp;gibi)<br>
+&nbsp;*&nbsp;Tum&nbsp;kanallar&nbsp;<i>ilginc&nbsp;Turkceye</i>&nbsp;cevirildi&nbsp;ve&nbsp;biraz&nbsp;degistirildi.<br>
+<br>
+-------------------------------------<br>
+Bu&nbsp;gazeteye&nbsp;erisebildiginize&nbsp;gore&nbsp;sunucuda<br>
+olabilirsiniz.&nbsp;Sunucuda&nbsp;degilseniz&nbsp;daha&nbsp;cok&nbsp;bos<br>
+yer&nbsp;var,&nbsp;gelin&nbsp;gelin.<br>
+<br>
+→&nbsp;https://discord.gg/WrsFW4rzr9<br>
+<br>
+-------------------------------------<br>
+Gazetemiz&nbsp;artik&nbsp;<div style="display: inline; color:rgb(0, 170, 170);">GitHub</div>'da!&nbsp;Yildiz&nbsp;atmayi&nbsp;ihmal&nbsp;etmeyin!<br>
+<br>
+→&nbsp;https://github.com/ferhatgec/gazete<br>
+-------------------------------------<br>
+<br>
+Kose&nbsp;yazilarinda&nbsp;<i>siz&nbsp;de</i>&nbsp;olabilirsiniz!<br>
+Istediginiz&nbsp;herhangi&nbsp;bir&nbsp;konu&nbsp;hakkinda&nbsp;kose&nbsp;yazisi/lari&nbsp;yazin,<br>
+sunucumuzdan&nbsp;gonderin.&nbsp;Biz&nbsp;de&nbsp;<div style="display: inline; color:rgb(85, 255, 85);">
+yayimlayalim</div>
+!<br>
+<br>
+-------------------------------------<br>
+<br>
+Gazetemiz&nbsp;icin&nbsp;elestiride&nbsp;mi&nbsp;bulunmak<br>
+istiyorsunuz?<br>
+`#<div style="display: inline; color:rgb(85, 85, 255);">
+feedback</div>`&nbsp;kanalina&nbsp;fisildamayi&nbsp;unutmayin!<br>
+<br>
+=================================<br>
+<div style="text-align: left"></div>

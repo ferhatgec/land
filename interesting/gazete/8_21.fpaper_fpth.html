@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<br>
+<div style="text-align: center"><div style="display: inline; color:rgb(170, 85, 0);">
+Fegeya&nbsp;Komitesi</div>&nbsp;Resm<div style="display: inline; color:rgb(0, 0, 170);">
+i</div>&nbsp;Gazetesi</div>
+<br>
+<br>
+<div style="text-align: left"><br>
+Tarih:&nbsp;1/0<div style="display: inline; color:rgb(255, 255, 85);">
+8</div>/21<br>
+<br>
+<div style="display: inline; color:rgb(255, 255, 85);">
+Ele&nbsp;alinacak&nbsp;konular</div>:<br>
+&nbsp;*&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+Gretea</div>&nbsp;(syf:&nbsp;2)<br>
+&nbsp;*&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+curl4cpp</div>&nbsp;(syf:&nbsp;3-4)<br>
+&nbsp;*&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+Gretea&nbsp;standart&nbsp;kutuphanesi</div>&nbsp;(syf:&nbsp;5-6)<br>
+<br>
+<div style="display: inline; color:rgb(255, 255, 85);">
+Kose&nbsp;yazi/lari</div>:<br>
+&nbsp;*&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+fasht</div>&nbsp;karma&nbsp;kod&nbsp;(hash)&nbsp;algoritmasi.&nbsp;(syf:&nbsp;7)<br>
+&nbsp;*&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+Elite</div>'ye&nbsp;ne&nbsp;eklendi&nbsp;yine?&nbsp;(syf:&nbsp;8)<br>
+&nbsp;*&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+escafe</div>&nbsp;de&nbsp;ne&nbsp;yahu!?&nbsp;(syf:&nbsp;9)<br>
+<br>
+<div style="display: inline; color:rgb(255, 255, 85);">
+Ek</div>:<br>
+&nbsp;*&nbsp;Sunucuda&nbsp;yapilan&nbsp;degisikliklerin&nbsp;siralanmasi.<br>
+&nbsp;*&nbsp;Kucuk&nbsp;degisiklikler.<br>
+<br>
+<br>
+<div style="display: inline; color:rgb(170, 0, 0);">
+Gretea</div>&nbsp;degisiklikleri?<br>
+</div>
+------------<div style="display: inline"><br>
+<div style="display: inline; color:rgb(170, 0, 0);">
+Gretea</div>'ya&nbsp;yeni,&nbsp;guzel&nbsp;mi&nbsp;guzel&nbsp;ozellikler&nbsp;eklendi.<br>
+<br>
+Bunlardan&nbsp;birisi&nbsp;acikcasi&nbsp;bana&nbsp;gore&nbsp;<div style="display: inline; color:rgb(0, 170, 0);">
+compile</div>&nbsp;<br>
+anahtar&nbsp;kelimesidir.&nbsp;Ne&nbsp;katiyor&nbsp;gelin&nbsp;bakalim:<br>
+<br>
+Surekli&nbsp;yeni&nbsp;degiskenler&nbsp;olusturuyorsunuz&nbsp;diyelim,<br>
+hepsine&nbsp;benzer&nbsp;verileri&nbsp;atamak&nbsp;sizin&nbsp;icin&nbsp;zor&nbsp;olmali.<br>
+<br>
+<div style="display: inline; color:rgb(170, 0, 0);">
+Gretea</div>'ya&nbsp;eklenen&nbsp;<div style="display: inline; color:rgb(0, 170, 0);">
+compile</div>&nbsp;anahtar&nbsp;kelimesi&nbsp;ile&nbsp;<br>
+turlere&nbsp;farkli&nbsp;farkli&nbsp;evrensel&nbsp;varsayilan&nbsp;degerler<br>
+atamaniz&nbsp;mumkun:<br>
+<br>
+&nbsp;&nbsp;<div style="display: inline; color:rgb(0, 170, 0);">
+compile</div>&nbsp;<div style="display: inline; color:rgb(85, 255, 85);">
+default</div>&nbsp;for&nbsp;<div style="display: inline; color:rgb(255, 255, 85);">
+string</div>&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"Her&nbsp;\'default\'u&nbsp;kullandigim&nbsp;zaman,&nbsp;okudugunuz&nbsp;dizeyi&nbsp;atayacak"<br>
+&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+var</div>&nbsp;test:&nbsp;<div style="display: inline; color:rgb(255, 255, 85);">
+string</div>&nbsp;=&nbsp;[[&nbsp;<div style="display: inline; color:rgb(85, 255, 85);">
+default</div>&nbsp;]]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^^^^^^&nbsp;&nbsp;&nbsp;^^&nbsp;^^^^^^^&nbsp;^^<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;z&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y<br>
+<br>
+x:&nbsp;<div style="display: inline; color:rgb(0, 170, 0);">
+compile</div>'i&nbsp;kullanabilmemiz&nbsp;icin&nbsp;oncelikle&nbsp;tur&nbsp;tanimini&nbsp;<br>
+yapmamiz&nbsp;gerekir.&nbsp;<br>
+<br>
+y:&nbsp;bildiniz&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+Gretea</div>&nbsp;belirteclere&nbsp;sahip,&nbsp;boylece&nbsp;derleyici&nbsp;tarafindan<br>
+belirlenmis&nbsp;ozellikleri&nbsp;degistirebiliyoruz.<br>
+<br>
+z:&nbsp;iste&nbsp;burasi&nbsp;belirtec&nbsp;ozelligidir,&nbsp;az&nbsp;once&nbsp;<div style="display: inline; color:rgb(0, 170, 0);">
+compile</div>&nbsp;default&nbsp;<br>
+icin&nbsp;~</div>
+derlemistik<div style="display: inline">~,&nbsp;belirtec&nbsp;bize&nbsp;bu&nbsp;tur&nbsp;icin&nbsp;uygun&nbsp;bir&nbsp;surekleme<br>
+oldugunu&nbsp;belirtiyor,&nbsp;derleyici&nbsp;de&nbsp;bunlari&nbsp;evrensel&nbsp;<div style="display: inline; color:rgb(0, 170, 0);">
+compile</div>&nbsp;listesinden<br>
+cekerek&nbsp;yerlestiriyor.<br>
+<br>
+"</div>
+<div style="display: inline; color:rgb(255, 255, 255);">
+Eeee?&nbsp;Bu&nbsp;kadar&nbsp;mi&nbsp;yani?</div><div style="display: inline">"&nbsp;dediginizi&nbsp;duyar&nbsp;gibiyim,&nbsp;bir&nbsp;diger&nbsp;ozellik&nbsp;ise<br>
+<div style="display: inline; color:rgb(0, 0, 170);">
+unsafe</div>'ye&nbsp;yeni&nbsp;eklenen&nbsp;ozelliktir.<br>
+<br>
+<div style="display: inline; color:rgb(170, 0, 0);">
+Gretea</div>'da&nbsp;her&nbsp;degiskene&nbsp;bir&nbsp;veri,&nbsp;deger&nbsp;(ya&nbsp;da&nbsp;her&nbsp;ne&nbsp;diyorsaniz)&nbsp;atamaniz<br>
+bir&nbsp;zorunluluktur,&nbsp;diger&nbsp;turlu&nbsp;hicbir&nbsp;sey&nbsp;atanmamis&nbsp;bir&nbsp;deger&nbsp;sorunlar&nbsp;<br>
+yaratabilir.<br>
+<br>
+Iste&nbsp;burada&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+unsafe</div>'ye&nbsp;yeni&nbsp;bir&nbsp;is&nbsp;dusuyor:<br>
+<br>
+Artik&nbsp;veri&nbsp;atamak&nbsp;zorunda&nbsp;degilsiniz&nbsp;(</div>
+ama&nbsp;atama&nbsp;yapmayip&nbsp;da&nbsp;sonradan&nbsp;<br>
+soylenmek&nbsp;yok<div style="display: inline">,&nbsp;</div>
+tamam&nbsp;mi<div style="display: inline">?):<br>
+<br>
+&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+var</div>&nbsp;test:&nbsp;<div style="display: inline; color:rgb(85, 255, 85);">
+string</div>&nbsp;=&nbsp;[[&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+unsafe</div>&nbsp;]]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^^^^^^&nbsp;&nbsp;&nbsp;^^&nbsp;^^^^^^&nbsp;^^<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;&nbsp;&nbsp;&nbsp;q&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y<br>
+<br>
+x:&nbsp;ustte&nbsp;var<br>
+y:&nbsp;ustte&nbsp;var<br>
+q:&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+unsafe</div>&nbsp;de&nbsp;bir&nbsp;diger&nbsp;belirtec&nbsp;ozelligidir,&nbsp;bununla&nbsp;derleyicinin<br>
+kisitlamalarini&nbsp;kaldirabilirsiniz.&nbsp;Bu&nbsp;<div style="display: inline; color:rgb(85, 85, 255);">
+C++</div>&nbsp;ve&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+C</div>&nbsp;baglayicilarinda&nbsp;kullanilabilir.<br>
+Derleyici&nbsp;tarafindan&nbsp;kisitli&nbsp;olaylar&nbsp;projenin&nbsp;calistirilmasi&nbsp;esnasinda&nbsp;olabilecek<br>
+bellek&nbsp;tasmasi&nbsp;gibi&nbsp;olaylari&nbsp;engellemek&nbsp;icin&nbsp;var.<br>
+<br>
+Sunucumuzdan&nbsp;birkac&nbsp;alintilar:<br>
+============<br>
+„<div style="display: inline; color:rgb(85, 85, 255);">
+Suanlik&nbsp;sadece&nbsp;'<div style="display: inline; color:rgb(85, 255, 85);">
+default</div>'&nbsp;var&nbsp;'<div style="display: inline; color:rgb(0, 170, 0);">
+compile</div>'&nbsp;icin&nbsp;ama&nbsp;<br>
+gelecekte&nbsp;</div>
+[[</div>
+&nbsp;x&nbsp;<b>]]</b>&nbsp;seklinde&nbsp;olan&nbsp;tum&nbsp;ozellestirmeler&nbsp;icin&nbsp;destek&nbsp;sunacagim.<br>
+Mesela&nbsp;'<b><div style="display: inline; color:rgb(255, 255, 85);">
+no_optimize</div>
+</b>'&nbsp;icin&nbsp;belirli&nbsp;bloklar&nbsp;optimize&nbsp;edilmeyebilir.“&nbsp;-&nbsp;@ferhatgec<br>
+<br>
+„<div style="display: inline; color:rgb(255, 255, 85);">
+Ek&nbsp;olarak&nbsp;bunlar&nbsp;(<div style="display: inline; color:rgb(0, 0, 170);">
+c</div>&nbsp;yapilari)&nbsp;'<div style="display: inline; color:rgb(255, 85, 85);">
+immutable</div>'&nbsp;(<div style="display: inline; color:rgb(170, 0, 0);">
+degistirilemez</div>)&nbsp;olamazlar.</div>“&nbsp;-&nbsp;@ferhatgec<br>
+============<br>
+<br>
+Kaynak/lar:<br>
+&nbsp;https://github.com/ferhatgec/gretea<br>
+&nbsp;https://github.com/ferhatgec/bufsize.tea<br>
+&nbsp;https://github.com/ferhatgec/colorite<br>
+<br>
+<div style="display: inline; color:rgb(170, 0, 0);">
+curl4cpp</div>&nbsp;neyin&nbsp;nesi?<br>
+<b>------------</b><br>
+<div style="display: inline; color:rgb(170, 0, 0);">
+curl4cpp</div>,&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+libcURL</div>'nin&nbsp;<div style="display: inline; color:rgb(85, 85, 255);">
+modern</div>&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+C++</div>'a&nbsp;sarmalanmis&nbsp;bir&nbsp;halidir<br>
+diyebilirim.&nbsp;Tek&nbsp;baslik,&nbsp;<div style="display: inline; color:rgb(85, 255, 85);">
+RAII</div>'ye&nbsp;saygili&nbsp;bir&nbsp;kutuphane.<br>
+<br>
+Bunu&nbsp;kullanarak&nbsp;bir&nbsp;proje&nbsp;daha&nbsp;yaptim,&nbsp;normalde&nbsp;'<div style="display: inline; color:rgb(0, 170, 170);">curl</div>'&nbsp;ve&nbsp;'<div style="display: inline; color:rgb(85, 255, 255);">
+wget</div>'<br>
+kullaniliyor&nbsp;genel&nbsp;olarak&nbsp;internetten&nbsp;bir&nbsp;veri&nbsp;cekmek&nbsp;icin&nbsp;vs.<br>
+<br>
+Fegeya&nbsp;Felsefesine&nbsp;tam&nbsp;anlamiyla&nbsp;saygili&nbsp;bir&nbsp;sekilde&nbsp;yapiyorum<br>
+tabii&nbsp;ki&nbsp;de.&nbsp;<br>
+<br>
+Gelecekte&nbsp;farkli&nbsp;farkli&nbsp;dillere&nbsp;de&nbsp;sarmalamayi&nbsp;planliyorum&nbsp;diyebilirim,<br>
+ozelikle&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+Gretea</div>.&nbsp;<br>
+<br>
+Kaynak/lar:<br>
+&nbsp;https://github.com/ferhatgec/gretea<br>
+&nbsp;https://github.com/ferhatgec/curl4cpp<br>
+<br>
+<div style="display: inline; color:rgb(170, 0, 0);">
+Gretea&nbsp;standart&nbsp;kutuphanesi</div>ne&nbsp;neler&nbsp;eklenmis?<br>
+<b>------------</b><br>
+Bayagi&nbsp;yeni&nbsp;seyler&nbsp;ekledik:<br>
+<br>
+&nbsp;*&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+c<div style="display: inline; color:rgb(0, 170, 0);">
+o<div style="display: inline; color:rgb(170, 85, 0);">
+l<div style="display: inline; color:rgb(0, 0, 170);">
+o<div style="display: inline; color:rgb(170, 0, 170);">
+r<div style="display: inline; color:rgb(170, 170, 170);">
+i<div style="display: inline; color:rgb(255, 85, 85);">
+z<div style="display: inline; color:rgb(85, 255, 85);">
+e<div style="display: inline; color:rgb(255, 255, 85);">
+d</div>
+&nbsp;kutuphanesi&nbsp;gibi&nbsp;bir&nbsp;modul<br>
+&nbsp;*&nbsp;gunluk&nbsp;(log)&nbsp;modulu.<br>
+&nbsp;*&nbsp;matematiksel&nbsp;ifade&nbsp;ayristirici&nbsp;ve&nbsp;olusturucu&nbsp;bir&nbsp;modul.<br>
+&nbsp;*&nbsp;ucbirim&nbsp;genisligini&nbsp;ve&nbsp;uzunlugunu&nbsp;alabilmeniz&nbsp;icin&nbsp;bir&nbsp;modul.<br>
+&nbsp;*&nbsp;cok&nbsp;ama&nbsp;cok&nbsp;basit&nbsp;bir&nbsp;dil&nbsp;yorumlayicisi&nbsp;(standart&nbsp;kutuphanede&nbsp;degil)&nbsp;<br>
+&nbsp;*&nbsp;kacis&nbsp;dizisi&nbsp;olusturucu&nbsp;ve&nbsp;ayristirici&nbsp;bir&nbsp;modul.<br>
+<br>
+Colorite:<br>
+&nbsp;*&nbsp;colorite,&nbsp;su&nbsp;renk&nbsp;turlerine&nbsp;sahip:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Reset<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(0, 0, 0);">
+Black</div>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+Red</div>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(0, 170, 0);">
+Green</div>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+Yellow</div>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+Blue</div>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 0, 170);">
+Magenta</div>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(0, 170, 170);">Cyan</div>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 170, 170);">
+White</div>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Default<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(255, 255, 255);">
+Light</div>&nbsp;(usttekiler&nbsp;gibi)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Background&nbsp;(usttekiler&nbsp;gibi)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;BackgroundLight&nbsp;(usttekiler&nbsp;gibi)<br>
+&nbsp;&nbsp;&nbsp;<br>
+&nbsp;*&nbsp;colorite,&nbsp;su&nbsp;yazi&nbsp;stillerine&nbsp;sahip:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Light&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</div>
+Bold</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</div>
+Dim</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</div>
+Italic</div>&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;</div>
+Underlined</div><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline">Blink</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline">RapidBlink</div>&nbsp;(sadece&nbsp;<div style="display: inline; color:rgb(85, 85, 255);">
+Windows</div>&nbsp;icin)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Reverse<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Hidden<br>
+<br>
+&nbsp;standart&nbsp;kutuphanedeki&nbsp;yeri:<br>
+&nbsp;&nbsp;->&nbsp;tea.green.color<br>
+&nbsp;<br>
+&nbsp;fonksiyon&nbsp;tanimi:<br>
+&nbsp;&nbsp;->&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+fn</div>&nbsp;color#print(__data:&nbsp;<div style="display: inline; color:rgb(255, 255, 85);">
+string</div>,&nbsp;color:&nbsp;__Colors__,&nbsp;type:&nbsp;__Color_Types__)<br>
+<br>
+Logre:<br>
+&nbsp;*&nbsp;logre,&nbsp;su&nbsp;gunluk&nbsp;turlerine&nbsp;sahip:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Info<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Warning<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+Error</div><br>
+&nbsp;&nbsp;&nbsp;&nbsp;Help<br>
+<br>
+&nbsp;standart&nbsp;kutuphanedeki&nbsp;yeri:<br>
+&nbsp;&nbsp;->&nbsp;tea.green.log<br>
+<br>
+&nbsp;fonksiyon&nbsp;tanimi:<br>
+&nbsp;&nbsp;->&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+fn</div>&nbsp;log#print<'Args>(__type:&nbsp;__Log_Types__,&nbsp;log_datas:&nbsp;Args)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^^^^^^^<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v<br>
+&nbsp;&nbsp;v:&nbsp;genisletilebilir&nbsp;fonksiyon.<br>
+<br>
+Grexpr:<br>
+&nbsp;*&nbsp;grexpr,&nbsp;su&nbsp;operatorlere&nbsp;sahip:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Plus<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Minus<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Multi<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Div<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Undefined&nbsp;(sayi&nbsp;olabilir)<br>
+<br>
+&nbsp;standart&nbsp;kutuphanedeki&nbsp;yeri:<br>
+&nbsp;&nbsp;->&nbsp;tea.green.expr<br>
+<br>
+&nbsp;fonksiyon&nbsp;tanimi:<br>
+&nbsp;&nbsp;->&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+fn</div>&nbsp;expr#eval(data:&nbsp;<div style="display: inline; color:rgb(255, 255, 85);">
+string</div>)&nbsp;=&nbsp;<div style="display: inline; color:rgb(255, 85, 85);">
+int32</div><br>
+<br>
+Bufsize:<br>
+&nbsp;*&nbsp;bufsize,&nbsp;su&nbsp;yapiya&nbsp;sahip:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(85, 255, 85);">
+struct</div>&nbsp;BufSize&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(255, 85, 85);">
+mut</div>&nbsp;columns&nbsp;:&nbsp;<div style="display: inline; color:rgb(255, 85, 85);">
+uint32</div>&nbsp;[[&nbsp;<div style="display: inline; color:rgb(85, 255, 85);">
+default</div>&nbsp;=&nbsp;0&nbsp;]]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(255, 85, 85);">
+mut</div>&nbsp;rows&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<div style="display: inline; color:rgb(255, 85, 85);">
+uint32</div>&nbsp;[[&nbsp;<div style="display: inline; color:rgb(85, 255, 85);">
+default</div>&nbsp;=&nbsp;0&nbsp;]]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;standart&nbsp;kutuphanedeki&nbsp;yeri:<br>
+&nbsp;&nbsp;->&nbsp;tea.green.bufsize<br>
+<br>
+&nbsp;fonksiyon&nbsp;tanimi:<br>
+&nbsp;&nbsp;->&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+fn</div>&nbsp;bufsize#init()&nbsp;=&nbsp;<div style="display: inline; color:rgb(255, 85, 85);">
+BufSize</div><br>
+&nbsp;&nbsp;->&nbsp;<div style="display: inline; color:rgb(0, 170, 0);">
+compile</div>&nbsp;<div style="display: inline; color:rgb(85, 255, 85);">
+default</div>&nbsp;for&nbsp;<div style="display: inline; color:rgb(255, 85, 85);">
+BufSize</div><br>
+<br>
+Ceylon:<br>
+&nbsp;*&nbsp;ceylon,&nbsp;su&nbsp;anahtar&nbsp;kelimelere&nbsp;sahip:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Put<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Val<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Undef&nbsp;(tanimlanmamis,&nbsp;her&nbsp;sey&nbsp;olabilir)<br>
+<br>
+&nbsp;standart&nbsp;kutuphanede&nbsp;degil.<br>
+<br>
+&nbsp;fonksiyon&nbsp;tanimi:<br>
+&nbsp;&nbsp;->&nbsp;ana&nbsp;fonksiyonun&nbsp;icinde<br>
+&nbsp;&nbsp;->&nbsp;<div style="display: inline; color:rgb(0, 170, 0);">
+compile</div>&nbsp;<div style="display: inline; color:rgb(85, 255, 85);">
+default</div>&nbsp;for&nbsp;<div style="display: inline; color:rgb(255, 255, 85);">
+string</div><br>
+<br>
+Escafe:<br>
+&nbsp;standart&nbsp;kutuphanedeki&nbsp;yeri:<br>
+&nbsp;&nbsp;->&nbsp;tea.green.escape<br>
+<br>
+&nbsp;fonksiyon&nbsp;tanimi:<br>
+&nbsp;&nbsp;->&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+fn</div>&nbsp;escape#run(data:&nbsp;<div style="display: inline; color:rgb(255, 255, 85);">
+string</div>)&nbsp;=&nbsp;<div style="display: inline; color:rgb(255, 255, 85);">
+string</div><br>
+<br>
+Bunlar&nbsp;gercekten&nbsp;kullanisli,&nbsp;normalde&nbsp;de&nbsp;cok<br>
+kullandigim,&nbsp;farkli&nbsp;diller&nbsp;icin&nbsp;de&nbsp;surekledigim<br>
+projeler.&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+Gretea</div>&nbsp;kullanirken&nbsp;bunlari&nbsp;da&nbsp;kullanmayi<br>
+ihmal&nbsp;etmeyin.&nbsp;<i>Olabildigince</i>&nbsp;<div style="display: inline; color:rgb(0, 170, 0);">
+optimizeler</div>.<br>
+<br>
+Kaynak/lar:<br>
+&nbsp;https://github.com/ferhatgec/gretea<br>
+&nbsp;https://github.com/ferhatgec/bufsize.tea<br>
+&nbsp;https://github.com/ferhatgec/escafe.tea<br>
+&nbsp;https://github.com/ferhatgec/colorite<br>
+&nbsp;https://github.com/ferhatgec/logre<br>
+&nbsp;https://github.com/ferhatgec/ceylon<br>
+&nbsp;https://github.com/ferhatgec/grexpr<br>
+<br>
+<br>
+„Kose&nbsp;yazisi“:&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+fasht</div>'in&nbsp;algoritmasini&nbsp;aciklayalim:<br>
+<b>------------</b><br>
+<div style="display: inline; color:rgb(170, 85, 0);">
+fasht</div>&nbsp;asiri&nbsp;basit,&nbsp;4&nbsp;bloktan&nbsp;olusan&nbsp;karma&nbsp;kod&nbsp;olusturucu<br>
+bir&nbsp;algoritma.&nbsp;Ben&nbsp;Python&nbsp;ve&nbsp;<div style="display: inline; color:rgb(85, 85, 255);">
+C++</div>&nbsp;icin&nbsp;surekledim.<br>
+<br>
+Sifrelenebilir,&nbsp;geri&nbsp;dondurulebilir.&nbsp;<i>Bu&nbsp;yuzden&nbsp;sifreleme&nbsp;algoritmasi<br>
+degildir.</i><br>
+<br>
+Algoritmasini&nbsp;pseudo&nbsp;kod&nbsp;ile&nbsp;aciklayacagim.&nbsp;<b>Anlayacaginizi&nbsp;umuyorum</b>.<br>
+<br>
+bloklar&nbsp;sunlar:<br>
+&nbsp;&nbsp;<b>0x2</b><br>
+&nbsp;&nbsp;<b>0x5</b><br>
+&nbsp;&nbsp;<b>0x7d5</b><br>
+&nbsp;&nbsp;<b>0x7e5</b><br>
+<br>
+&nbsp;pseudo&nbsp;kodu&nbsp;burada:<br>
+&nbsp;&nbsp;rounds&nbsp;:=&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b>0x2</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b>0x5</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b>0x7d5</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<b>0x7e5</b><br>
+&nbsp;&nbsp;]<br>
+<br>
+&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+function</div>&nbsp;h(data:&nbsp;<div style="display: inline; color:rgb(255, 255, 85);">
+string</div>)&nbsp;:=&nbsp;<div style="display: inline; color:rgb(255, 255, 85);">
+string</div>&nbsp;:=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;table&nbsp;:=&nbsp;<div style="display: inline; color:rgb(255, 85, 85);">
+uint</div>[]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;:=&nbsp;<div style="display: inline; color:rgb(255, 255, 85);">
+string</div>("")<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+for</div>&nbsp;round&nbsp;:&nbsp;rounds&nbsp;:=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+for</div>&nbsp;character&nbsp;:&nbsp;data&nbsp;:=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;table&nbsp;+=&nbsp;(character&nbsp;<<&nbsp;2)&nbsp;^&nbsp;round<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+for</div>&nbsp;argument&nbsp;:&nbsp;table&nbsp;:=&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;+=&nbsp;hex(argument&nbsp;>>&nbsp;2).last_character()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(0, 0, 170);">
+if</div>&nbsp;result.length()&nbsp;>&nbsp;32&nbsp;:=&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;=&nbsp;result[0..32]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(255, 85, 255);">
+else</div>&nbsp;:=<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;h(result)<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;result<br>
+<br>
+Simdi&nbsp;bu&nbsp;bana&nbsp;bir&nbsp;dize&nbsp;verir,&nbsp;<=&nbsp;32&nbsp;karaktere&nbsp;sahip.<br>
+<br>
+"Peki&nbsp;bunu&nbsp;nasil&nbsp;gercekten&nbsp;bir&nbsp;karma&nbsp;koda&nbsp;cevirebilirim"&nbsp;diyorsaniz,<br>
+<br>
+pseudo&nbsp;kodu&nbsp;su:<br>
+&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+function</div>&nbsp;hb(data:&nbsp;<div style="display: inline; color:rgb(255, 255, 85);">
+string</div>)&nbsp;:=&nbsp;<div style="display: inline; color:rgb(255, 85, 85);">
+ulong</div>&nbsp;:=&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;string_to_long(h(data),&nbsp;base(16))<br>
+<br>
+Gelecekte&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+Gretea</div>&nbsp;icin&nbsp;de&nbsp;yazmayi&nbsp;planliyorum.<br>
+<br>
+Kaynak/lar:<br>
+&nbsp;https://github.com/ferhatgec/fasht<br>
+&nbsp;https://github.com/ferhatgec/fasht.py<br>
+<br>
+„Kose&nbsp;yazisi“:&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+Elite</div>'ye&nbsp;ne&nbsp;eklendi&nbsp;yine?<br>
+<b>------------</b><br>
+<div style="display: inline; color:rgb(170, 85, 0);">
+Elite</div>'ye&nbsp;uzun&nbsp;zamandir&nbsp;yapacagimi&nbsp;soyledigim&nbsp;ancak&nbsp;usendigimden&nbsp;<br>
+yapmadigim&nbsp;cikti&nbsp;baskilama&nbsp;ozelligini&nbsp;ekledim.<br>
+<br>
+Eger&nbsp;siz&nbsp;bir&nbsp;sistem&nbsp;cagrisi&nbsp;yuruyorsaniz&nbsp;ve&nbsp;ciktisini&nbsp;bastirmak&nbsp;<br>
+istemiyorsaniz&nbsp;kullanacaginiz&nbsp;tek&nbsp;anahtar&nbsp;kelime:&nbsp;'<div style="display: inline; color:rgb(255, 255, 85);">
+suppress</div>'.<br>
+<br>
+Ornek:<br>
+&nbsp;&nbsp;<div style="display: inline; color:rgb(255, 85, 85);">
+println</div>&nbsp;<div style="display: inline; color:rgb(255, 255, 85);">
+suppress</div>&nbsp;"<div style="display: inline; color:rgb(255, 255, 255);">
+stdout&nbsp;baskilandi,&nbsp;bunu&nbsp;sadece&nbsp;burada&nbsp;gorebilirsiniz.</div>"<br>
+<br>
+&nbsp;&nbsp;<div style="display: inline; color:rgb(255, 85, 85);">
+use</div>&nbsp;<div style="display: inline; color:rgb(255, 255, 85);">
+exec</div>&nbsp;<div style="display: inline; color:rgb(255, 255, 85);">
+suppress</div>&nbsp;"<div style="display: inline; color:rgb(255, 255, 255);">
+echo&nbsp;Sistem&nbsp;cagrisi&nbsp;baskilandi&nbsp;bile,&nbsp;sadece&nbsp;burada&nbsp;gorebilirsiniz.</div>"<br>
+<br>
+<br>
+„Kose&nbsp;yazisi“:&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+escafe</div>&nbsp;de&nbsp;ne&nbsp;yahu!?<br>
+<div style="display: inline; color:rgb(170, 85, 0);">
+Escafe</div>,&nbsp;<i>3</i>&nbsp;farkli&nbsp;dile&nbsp;surekledigim&nbsp;bir&nbsp;<b>kacis&nbsp;dizesi&nbsp;ayristiricisi</b>&nbsp;ve&nbsp;<br>
+verilen&nbsp;dizeye&nbsp;gore&nbsp;tekrardan&nbsp;onu&nbsp;olusturabilen&nbsp;bir&nbsp;<b>olusturucudur</b>.<br>
+<br>
+Hani&nbsp;sizin&nbsp;kullandiginiz&nbsp;(<div style="display: inline; color:rgb(170, 0, 0);">
+\r</div>,&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+\n</div>,&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+\b</div>)&nbsp;falan&nbsp;var&nbsp;ya.&nbsp;Onlar&nbsp;iste.<br>
+<br>
+Ek&nbsp;olarak&nbsp;<div style="display: inline; color:rgb(255, 85, 85);">
+\w</div>&nbsp;dizesini&nbsp;de&nbsp;destekliyor.&nbsp;Bunu&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+Gretea</div>'da&nbsp;<i><div style="display: inline; color:rgb(255, 255, 85);">
+cok&nbsp;ama&nbsp;cok&nbsp;<br>
+kullaniyoruz</div></i>.<br>
+<br>
+<div style="display: inline; color:rgb(170, 0, 0);">
+\w</div>&nbsp;=&nbsp;whitespace&nbsp;(bosluk)<br>
+<br>
+Ornek&nbsp;girdi:<br>
+&nbsp;&nbsp;<b>escafe\\wis\\winteresting\\n\\x1b[0;33mtest\\x1b[0m\\n\\\\</b><br>
+<br>
+Ornek&nbsp;cikti:<br>
+&nbsp;&nbsp;escafe&nbsp;is&nbsp;interesting<br>
+&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+test</div><br>
+&nbsp;&nbsp;\<br>
+<br>
+Ve...&nbsp;Son&nbsp;olarak&nbsp;sunucuda&nbsp;yapilan&nbsp;degisiklikler.<br>
+(1/<div style="display: inline; color:rgb(170, 85, 0);">
+07</div>/21‘den&nbsp;1/<div style="display: inline; color:rgb(170, 85, 0);">
+08</div>/21‘e)<br>
+<br>
+Yeni&nbsp;rol/ler&nbsp;eklendi:<br>
+&nbsp;*&nbsp;@'\n'&nbsp;->&nbsp;';'<br>
+&nbsp;*&nbsp;@';'&nbsp;->&nbsp;'\n'<br>
+&nbsp;*&nbsp;@Fegeya&nbsp;Sanal&nbsp;Makinesine&nbsp;Giren&nbsp;Kisi<br>
+&nbsp;*&nbsp;@Naneli&nbsp;Yesil&nbsp;Cay<br>
+&nbsp;*&nbsp;@Nanesiz&nbsp;Siyah&nbsp;Cay<br>
+&nbsp;*&nbsp;@xsey,&nbsp;xmisiniz,&nbsp;xde,&nbsp;herkez,&nbsp;ptyhon,&nbsp;cplus,&nbsp;hoşgeldiniz<br>
+&nbsp;*&nbsp;@Tuvalette&nbsp;Gazete&nbsp;Okuyan&nbsp;Kisi<br>
+&nbsp;*&nbsp;@ACT<br>
+&nbsp;*&nbsp;@Hmm...<br>
+&nbsp;*&nbsp;@:<div style="display: inline; color:rgb(255, 255, 85);">
+gech</div>:<br>
+&nbsp;*&nbsp;@Lotzertfuil&nbsp;zum&nbsp;Fegeya<br>
+&nbsp;*&nbsp;@Surekli&nbsp;'<div style="display: inline; color:rgb(255, 255, 85);">
+Surekleyen</div>'&nbsp;Surekleyici<br>
+<br>
+Yeni&nbsp;kanal/lar:<br>
+&nbsp;*&nbsp;`#curl4<div style="display: inline; color:rgb(85, 85, 255);">
+cpp</div>`&nbsp;kanali&nbsp;eklendi.<br>
+<br>
+Kucuk&nbsp;degisiklikler:<br>
+&nbsp;*&nbsp;<div style="display: inline; color:rgb(85, 85, 255);">
+Discord</div>'un&nbsp;yeni&nbsp;ozelliklerini&nbsp;aktiflestirdik.<br>
+<br>
+-------------------------------------<br>
+Bu&nbsp;gazeteye&nbsp;erisebildiginize&nbsp;gore&nbsp;sunucuda<br>
+olabilirsiniz.&nbsp;Sunucuda&nbsp;degilseniz&nbsp;daha&nbsp;cok&nbsp;bos<br>
+yer&nbsp;var,&nbsp;gelin&nbsp;gelin.<br>
+<br>
+→&nbsp;https://discord.gg/WrsFW4rzr9<br>
+<br>
+-------------------------------------<br>
+Gazetemiz&nbsp;artik&nbsp;<div style="display: inline; color:rgb(0, 170, 170);">GitHub</div>'da!&nbsp;Yildiz&nbsp;atmayi&nbsp;ihmal&nbsp;etmeyin!<br>
+<br>
+→&nbsp;https://github.com/ferhatgec/gazete<br>
+-------------------------------------<br>
+<br>
+Kose&nbsp;yazilarinda&nbsp;<i>siz&nbsp;de</i>&nbsp;olabilirsiniz!<br>
+Istediginiz&nbsp;herhangi&nbsp;bir&nbsp;konu&nbsp;hakkinda&nbsp;kose&nbsp;yazisi/lari&nbsp;yazin,<br>
+sunucumuzdan&nbsp;gonderin.&nbsp;Biz&nbsp;de&nbsp;<div style="display: inline; color:rgb(85, 255, 85);">
+yayimlayalim</div>
+!<br>
+<br>
+-------------------------------------<br>
+<br>
+Gazetemiz&nbsp;icin&nbsp;elestiride&nbsp;mi&nbsp;bulunmak<br>
+istiyorsunuz?<br>
+`#<div style="display: inline; color:rgb(85, 85, 255);">
+feedback</div>`&nbsp;kanalina&nbsp;fisildamayi&nbsp;unutmayin!<br>
+<br>
+=================================<br>
+<div style="text-align: left"></div>

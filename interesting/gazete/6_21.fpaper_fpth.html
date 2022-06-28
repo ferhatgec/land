@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<br>
+<div style="text-align: center"><div style="display: inline; color:rgb(170, 85, 0);">
+Fegeya&nbsp;Komitesi</div>&nbsp;Resm<div style="display: inline; color:rgb(0, 0, 170);">
+i</div>&nbsp;Gazetesi</div>
+<br>
+<br>
+<div style="text-align: left"><br>
+Tarih:&nbsp;1/06/21<br>
+<br>
+Ele&nbsp;alinacak&nbsp;konular:<br>
+&nbsp;*&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+Gretea</div>&nbsp;(syf:&nbsp;2)<br>
+&nbsp;*&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+FPaper</div>&nbsp;(syf:&nbsp;3-4)<br>
+&nbsp;*&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+Elite</div>&nbsp;(syf:&nbsp;5-6)<br>
+<br>
+Kose&nbsp;yazilari:<br>
+&nbsp;*&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+FlaScript</div>&nbsp;neden&nbsp;öldü?&nbsp;(syf:&nbsp;7)<br>
+<br>
+Ek:<br>
+&nbsp;*&nbsp;Sunucuda&nbsp;yapilan&nbsp;degisikliklerin&nbsp;siralanmasi.<br>
+<br>
+<br>
+<div style="display: inline; color:rgb(170, 0, 0);">
+Gretea</div>&nbsp;nedir?<br>
+</div>
+------------<div style="display: inline"><br>
+Bir&nbsp;programlama&nbsp;dili.&nbsp;Ilk&nbsp;sureklemesi&nbsp;Rust&nbsp;ile<br>
+yazildi.&nbsp;Rust’un&nbsp;ve&nbsp;C++‘in&nbsp;sozdiziminden<br>
+bayagi&nbsp;bi’&nbsp;etkilendigini&nbsp;soyleyebilirim.<br>
+<br>
+Asil&nbsp;amaci&nbsp;Kalem&nbsp;gibi&nbsp;bir&nbsp;ara-katman&nbsp;seklinde<br>
+calistirilmasindan&nbsp;ziyade,&nbsp;birden&nbsp;fazla&nbsp;dile<br>
+donusturulebilip,&nbsp;yorumlanabilmesidir.<br>
+<br>
+Sunucumuzdan&nbsp;birkac&nbsp;alintilar:<br>
+============<br>
+„<div style="display: inline; color:rgb(85, 85, 255);">
+Kalem’in&nbsp;sozdiziminden&nbsp;ve&nbsp;sorunlarindan<br>
+nefret&nbsp;ettigim&nbsp;icin&nbsp;yazdim.</div>“&nbsp;-&nbsp;@ferhatgec<br>
+<br>
+„<div style="display: inline; color:rgb(255, 255, 85);">
+Naneli&nbsp;yesil&nbsp;cay&nbsp;tadinda&nbsp;bir&nbsp;dil.</div>“&nbsp;-&nbsp;@ferhatgec<br>
+============<br>
+<br>
+Kaynak:<br>
+https://github.com/ferhatgec/gretea<br>
+<br>
+<br>
+<div style="display: inline; color:rgb(170, 0, 0);">
+FPaper</div>&nbsp;peki?<br>
+</div>
+------------<div style="display: inline"><br>
+En&nbsp;basit&nbsp;tabiriyle:&nbsp;yazi&nbsp;dosya&nbsp;formati.<br>
+<div style="display: inline; color:rgb(170, 0, 0);">
+FPaper</div>,&nbsp;digerlerine&nbsp;kiyasla&nbsp;daha&nbsp;hafif,&nbsp;daha<br>
+hizli&nbsp;sekilde&nbsp;veriyi&nbsp;cikartabilir.&nbsp;(<div style="display: inline; color:rgb(170, 0, 0);">
+C++17</div>&nbsp;sureklemesi).<br>
+<br>
+<div style="display: inline; color:rgb(170, 0, 0);">
+FPaper</div>,&nbsp;Kedi;&nbsp;XML&nbsp;ya&nbsp;da&nbsp;JSON&nbsp;kullanmiyor.<br>
+<br>
+„E-Pub&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+XML</div>&nbsp;kullaniyor,&nbsp;cikartabilmem&nbsp;icin<br>
+libzip&nbsp;gibi&nbsp;bir&nbsp;sey&nbsp;lazim.&nbsp;Ustune&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+XML</div>&nbsp;cop<br>
+oldugu&nbsp;icin&nbsp;yavas&nbsp;olur“&nbsp;-&nbsp;@ferhatgec<br>
+<br>
+Fegeya&nbsp;Felsefesi’ne&nbsp;diger&nbsp;Fegeya&nbsp;projeleri&nbsp;gibi<br>
+tam-uyumlu,&nbsp;ek&nbsp;olarak&nbsp;termiospp<br>
+sarmalayicisini&nbsp;da&nbsp;kullaniyor.<br>
+<br>
+Bazi&nbsp;isaretcileri&nbsp;asagiya&nbsp;biraktik:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;START_MARKER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0x02<br>
+&nbsp;&nbsp;&nbsp;&nbsp;START_MARKER_2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0x46<br>
+&nbsp;&nbsp;&nbsp;&nbsp;START_MARKER_3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0x50<br>
+&nbsp;&nbsp;&nbsp;&nbsp;START_MARKER_4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0x61<br>
+&nbsp;&nbsp;&nbsp;&nbsp;START_MARKER_5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0x67<br>
+&nbsp;&nbsp;&nbsp;&nbsp;START_MARKER_6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0x65<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;START_OF_TEXT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0x26<br>
+&nbsp;&nbsp;&nbsp;&nbsp;END_OF_TEXT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0x15<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;STYLE_MARKER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0x1A<br>
+&nbsp;&nbsp;&nbsp;&nbsp;LIGHT_SET&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0x30<br>
+&nbsp;&nbsp;&nbsp;&nbsp;BOLD_SET&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0x31<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DIM_SET&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0x32<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ITALIC_SET&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0x33<br>
+&nbsp;&nbsp;&nbsp;&nbsp;UNDERLINED_SET&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0x34<br>
+&nbsp;&nbsp;&nbsp;&nbsp;BLINK_SET&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0x35<br>
+&nbsp;&nbsp;&nbsp;&nbsp;RAPID_BLINK_SET&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0x36<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;COLOR_RESET&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0x72<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ALIGN_LEFT_SET&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0x7B<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ALIGN_CENTER_SET&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0x7C<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ALIGN_RIGHT_SET&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0x7D<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ALIGN_RESET&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;0x7E<br>
+<br>
+Kaynak/lar:<br>
+https://github.com/ferhatgec/fpaper<br>
+<br>
+https://en.wikipedia.org/wiki/End-of-file<br>
+<br>
+<div style="display: inline; color:rgb(170, 0, 0);">
+Elite</div>&nbsp;ne?<br>
+</div>
+------------<div style="display: inline"><br>
+Bildiginiz&nbsp;ya&nbsp;da&nbsp;bilmediginiz&nbsp;gibi,&nbsp;projelerin<br>
+cogunlugunun&nbsp;<div style="display: inline; color:rgb(255, 85, 85);">
+CMake</div>&nbsp;ya&nbsp;da&nbsp;<div style="display: inline; color:rgb(255, 85, 85);">
+GNU&nbsp;Make</div><br>
+kullandigini&nbsp;cogumuz&nbsp;biliyoruz&nbsp;sanirim.<br>
+<br>
+<div style="display: inline; color:rgb(170, 0, 0);">
+Elite</div>,&nbsp;digerlerinden&nbsp;farkli&nbsp;bir&nbsp;sozdizimine,<br>
+tamamiyle&nbsp;sizin&nbsp;kontrolunuzde&nbsp;olan,&nbsp;<div style="display: inline; color:rgb(255, 85, 85);">
+~bir&nbsp;betik<br>
+diliymiscesine~</div>&nbsp;kullanilabilecek&nbsp;bir&nbsp;insa<br>
+sistemidir&nbsp;aslinda.<br>
+<br>
+Tamamiyle&nbsp;hafiftir,&nbsp;ana&nbsp;sureklemesi&nbsp;Rust&nbsp;ile,<br>
+ikinci&nbsp;sureklemesi&nbsp;ise&nbsp;C++&nbsp;ile&nbsp;yazilmistir,<br>
+yaziliyor.<br>
+<br>
+Ornek&nbsp;bir&nbsp;kod:<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(85, 255, 255);">
+set</div>&nbsp;BIN_PATH&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(85, 255, 255);">
+as</div>&nbsp;"/usr/bin/"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(85, 255, 255);">
+set</div>&nbsp;COMPILER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(85, 255, 255);">
+as</div>&nbsp;"g++"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(85, 255, 255);">
+set</div>&nbsp;COMPILER_PATH&nbsp;<div style="display: inline; color:rgb(85, 255, 255);">
+as</div>&nbsp;"{BIN_PATH}{COMPILER}"<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(85, 255, 255);">
+set</div>&nbsp;SOURCE_FILE&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(85, 255, 255);">
+as</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"example.cpp"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(85, 255, 255);">
+set</div>&nbsp;OUTPUT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(85, 255, 255);">
+as</div>&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+outfile</div>&nbsp;"example"<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+for</div>&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+signal</div>&nbsp;"start"&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+for</div>&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+exists</div>&nbsp;"{BIN_PATH}clang++"&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(85, 255, 255);">
+set</div>&nbsp;COMPILER&nbsp;<div style="display: inline; color:rgb(85, 255, 255);">
+as</div>&nbsp;"clang++"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+for</div>&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+argument</div>&nbsp;"build"&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 0, 170);">
+use</div>&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+exec</div>&nbsp;"{COMPILER}&nbsp;{SOURCE_FILE}&nbsp;{OUTPUT}"<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+for</div>&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+exists</div>&nbsp;$OUTPUT&nbsp;[<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 0, 170);">
+println</div>&nbsp;"Build&nbsp;succeeded"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 0, 170);">
+use</div>&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+signal</div>&nbsp;"exit"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 0, 170);">
+use</div>&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+signal</div>&nbsp;"exit"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+<br>
+Kaynak/lar:<br>
+https://github.com/ferhatgec/elite/blob/master/examples/cpp/hello_world/Elitefile<br>
+<br>
+https://github.com/ferhatgec/elite<br>
+<br>
+https://github.com/ferhatgec/elite.cpp<br>
+<br>
+https://en.wikipedia.org/wiki/Make_(software)<br>
+<br>
+https://en.wikipedia.org/wiki/CMake<br>
+<br>
+„Kose&nbsp;yazisi“:&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+FlaScript</div>&nbsp;neden&nbsp;öldü?<br>
+</div>
+------------<div style="display: inline"><br>
+Guzel&nbsp;soru.&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+FlaScript</div>&nbsp;bildiginiz&nbsp;ya&nbsp;da<br>
+bilmediginiz&nbsp;uzere&nbsp;uzun&nbsp;zamandir<br>
+guncellenmiyor,&nbsp;0.3-beta-4‘de&nbsp;takili&nbsp;kaldi.<br>
+Bunun&nbsp;birkac&nbsp;sebebi&nbsp;var,&nbsp;hemen&nbsp;siralayalim:<br>
+<br>
+1-&nbsp;Sozdiziminin&nbsp;asiri&nbsp;berbat&nbsp;olmasi.<br>
+„<br>
+&nbsp;Kisaca:→&nbsp;←<br>
+&nbsp;Sozdizimi&nbsp;cogunluk&nbsp;tarafindan&nbsp;berbat&nbsp;olarak&nbsp;aniliyor,&nbsp;cunku<br>
+&nbsp;gercekten&nbsp;berbat.&nbsp;Bir&nbsp;betik&nbsp;dilinin&nbsp;bu&nbsp;kadar&nbsp;karmasik,&nbsp;bu<br>
+&nbsp;kadar&nbsp;kotu&nbsp;gorunmesinin&nbsp;bir&nbsp;sebebi&nbsp;olamaz.<br>
+“<br>
+<br>
+2&nbsp;-&nbsp;Agac,&nbsp;liste&nbsp;yapisinin&nbsp;olmamasi.<br>
+„<br>
+&nbsp;Evet,&nbsp;dogru&nbsp;duydunuz!<br>
+&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+FlaScript</div>’in&nbsp;<div style="display: inline; color:rgb(0, 170, 170);">~biraz~</div>&nbsp;performanssiz&nbsp;calismasinin&nbsp;bir&nbsp;diger<br>
+&nbsp;sebebi&nbsp;de,&nbsp;direkt&nbsp;yorumlanmasidir.&nbsp;Dinamik&nbsp;bir&nbsp;dil<br>
+&nbsp;olmasinin&nbsp;getirdigi&nbsp;bir&nbsp;dezavantaj&nbsp;diyebiliriz&nbsp;buna.<br>
+“<br>
+<br>
+3&nbsp;-&nbsp;Tasarim&nbsp;hatalari.<br>
+„<br>
+&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+FlaScript</div>&nbsp;bircok&nbsp;tasarim&nbsp;hatalari&nbsp;bulundurur,&nbsp;asiri&nbsp;esnek&nbsp;bir<br>
+&nbsp;dil&nbsp;degildir,&nbsp;<div style="display: inline; color:rgb(170, 0, 0);">
+FlaScript</div>’i&nbsp;tekrar&nbsp;yazmak&nbsp;temizlemekten&nbsp;daha<br>
+&nbsp;kolaydir.&nbsp;Eglencesine&nbsp;ogrenilebilir,&nbsp;ornek&nbsp;projelere<br>
+&nbsp;bakilabilir.&nbsp;test/&nbsp;klasorunde&nbsp;60‘dan&nbsp;fazla&nbsp;ornek&nbsp;bulundurur.<br>
+“<br>
+<br>
+0.3-beta-4‘un&nbsp;sozdiziminden&nbsp;bir&nbsp;ornek:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#readline&nbsp;-><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+while</div>[getline(<div style="display: inline; color:rgb(170, 85, 0);">
+var</div>(test_file),&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+var</div>(null_))]&nbsp;->&nbsp;{<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;@<div style="display: inline; color:rgb(170, 85, 0);">
+echo</div>&nbsp;->&nbsp;null_&nbsp;<-<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+print</div>(<div style="display: inline; color:rgb(170, 85, 0);">
+newline</div>)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<-<br>
+&nbsp;&nbsp;&nbsp;&nbsp;#readline&nbsp;<-<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+main</div>()&nbsp;->&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+main</div>&nbsp;{<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+var</div>(string)&nbsp;->&nbsp;test.txt&nbsp;->&nbsp;test_file&nbsp;<-<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+var</div>(string)&nbsp;->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;->&nbsp;null_&nbsp;<-<br>
+<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;statement[#readline]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;<div style="display: inline; color:rgb(170, 85, 0);">
+main</div>;<br>
+<br>
+Kaynak/lar:<br>
+https://github.com/ferhatgec/flascript/blob/master/test/io/getline.fls<br>
+<br>
+https://github.com/ferhatgec/flascript<br>
+<br>
+https://github.com/ferhatgec/fetcher<br>
+<br>
+https://github.com/ferhatgec/flatcheya<br>
+<br>
+https://github.com/ferhatgec/fla-utils<br>
+<br>
+Sunucuda&nbsp;yapilan&nbsp;degisiklikler.<br>
+(1/<div style="display: inline; color:rgb(170, 85, 0);">
+05</div>/21‘den&nbsp;1/<div style="display: inline; color:rgb(170, 85, 0);">
+06</div>/21‘e)<br>
+<br>
+Yeni&nbsp;roller&nbsp;eklendi:<br>
+&nbsp;*&nbsp;@23&nbsp;Nisan’da&nbsp;Koltuga&nbsp;Oturan&nbsp;Cocuk<br>
+&nbsp;*&nbsp;@Ahlakli,&nbsp;Zeki&nbsp;ve&nbsp;Cevik&nbsp;Sporcu&nbsp;Genc<br>
+&nbsp;*&nbsp;@<13&nbsp;@<15&nbsp;@<18&nbsp;@18><br>
+&nbsp;*&nbsp;@Enjoy&nbsp;I’m&nbsp;vaccinated<br>
+&nbsp;*&nbsp;@Atom&nbsp;Bombasi<br>
+&nbsp;*&nbsp;@Notron&nbsp;Bombasi<br>
+&nbsp;*&nbsp;@4&nbsp;Yaprakli&nbsp;Yonca<br>
+&nbsp;*&nbsp;@Fegeya&nbsp;Yogurdu<br>
+&nbsp;*&nbsp;@Bakan&nbsp;birisi&nbsp;var&nbsp;mi&nbsp;acaba?<br>
+&nbsp;*&nbsp;@Maske<br>
+&nbsp;*&nbsp;@Hoparlor<br>
+&nbsp;*&nbsp;@Totem<br>
+<br>
+Isim&nbsp;degisikligi/kleri:<br>
+&nbsp;*&nbsp;`@Compiler&nbsp;ayaginiza&nbsp;geldi`&nbsp;→&nbsp;`@Derleyici&nbsp;ayaginiza&nbsp;geldi`<br>
+&nbsp;*&nbsp;`#gnulinux`&nbsp;→&nbsp;`#linux`<br>
+<br>
+Yeni&nbsp;kanallar:<br>
+&nbsp;*&nbsp;`#fpaper`&nbsp;kanali&nbsp;eklendi.<br>
+&nbsp;*&nbsp;`#every<div style="display: inline; color:rgb(170, 85, 0);">
+f</div>hing`&nbsp;kanali&nbsp;eklendi.<br>
+&nbsp;*&nbsp;`#exam`&nbsp;kanali&nbsp;eklendi.<br>
+&nbsp;*&nbsp;`#redd-i-gonderi`&nbsp;kanali&nbsp;eklendi.<br>
+&nbsp;*&nbsp;`#tadaa`&nbsp;kanali&nbsp;eklendi.<br>
+&nbsp;*&nbsp;`#football`&nbsp;ve&nbsp;`#baskelball`&nbsp;kanallari&nbsp;eklendi.<br>
+<br>
+<br>
+<br>
+Bu&nbsp;gazeteye&nbsp;erisebildiginize&nbsp;gore&nbsp;sunucuda<br>
+olabilirsiniz.&nbsp;Sunucuda&nbsp;degilseniz&nbsp;daha&nbsp;cok&nbsp;bos<br>
+yer&nbsp;var,&nbsp;gelin&nbsp;gelin.<br>
+<br>
+→&nbsp;https://discord.gg/WrsFW4rzr9<br>
+<br>
+Gazetemiz&nbsp;icin&nbsp;elestiride&nbsp;mi&nbsp;bulunmak<br>
+istiyorsunuz?<br>
+`#feedback`&nbsp;kanalina&nbsp;fisildamayi&nbsp;unutmayin!<br>
+<br>
+=================================<br>
+</div>
+
