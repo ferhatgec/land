@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+<body>
+<h1>c++ questions (10 q&a)</h1>
+
+<h3>note: iso c++ n4860 draft is used.</h3>
+<h3>if something wrong with the questions, you can report via github issues.</h3>
+<h3>'what's the output' means, if you see nothing wrong with the code (including ub and impl. defined situations); it would be the answer.<br>if not, it can be error, undefined behavior or implementation defined.</h3>
+
+<h2>question 1: what's the output? </h2>
+<h3>
+    #<span style="color: rgb(100, 100, 200)">include</span> <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(0, 100, 0)">iostream</span><span style="color: rgb(100, 10, 100)">&gt;</span>
+    <br>
+    #<span style="color: rgb(100, 100, 200)">include</span> <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(100, 20, 200)">string</span><span style="color: rgb(100, 10, 100)">&gt;</span>
+    <br>
+    
+    <br>
+    <span style="color: rgb(100, 20, 200)">template</span><span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(10, 250, 20)">typename</span> X, <span style="color: rgb(10, 250, 20)">typename</span> Y<span style="color: rgb(100, 10, 100)">&gt;</span>
+    <br>
+    <span style="color: rgb(100, 20, 200)">unsigned</span> Function<span style="color: rgb(100, 100, 100)">(</span>X x, Y y<span style="color: rgb(100, 100, 100)">)</span> <span style="color: rgb(100, 20, 200)">noexcept</span> {
+    <br>
+        <span style="color: rgb(105, 30, 20)">&nbsp;&nbsp;&nbsp;&nbsp;if</span> <span style="color: rgb(100, 20, 200)">constexpr</span><span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(0, 100, 0)">std</span>::is_same_v<span style="color: rgb(100, 10, 100)">&lt;</span>X, Y<span style="color: rgb(100, 10, 100)">&gt;</span><span style="color: rgb(100, 100, 100)">)</span> {
+    <br>
+            <span style="color: rgb(40, 100, 20)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return</span> 13;
+    <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}
+    <br>
+    
+    <br>
+        <span style="color: rgb(40, 100, 20)">&nbsp;&nbsp;&nbsp;&nbsp;return</span> 0;
+    <br>
+    }
+    <br>
+    
+    <br>
+    <span style="color: rgb(100, 20, 200)">int</span> <span style="color: rgb(200, 100, 50)">main</span><span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">)</span> {
+    <br>
+        <span style="color: rgb(100, 20, 200)">&nbsp;&nbsp;&nbsp;&nbsp;const</span> <span style="color: rgb(100, 20, 200)">int</span> value <span style="color: rgb(100, 10, 100)">=</span> 13;
+    <br>
+        <span style="color: rgb(100, 20, 200)">&nbsp;&nbsp;&nbsp;&nbsp;enum</span> Value: <span style="color: rgb(100, 20, 200)">const</span> <span style="color: rgb(100, 20, 200)">unsigned</span> { Val <span style="color: rgb(100, 10, 100)">=</span> value };
+    <br>
+        <span style="color: rgb(0, 100, 0)">&nbsp;&nbsp;&nbsp;&nbsp;std</span>::cout <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(100, 10, 100)">&lt;</span> Function<span style="color: rgb(100, 100, 100)">(</span>value, Value::Val<span style="color: rgb(100, 100, 100)">)</span> <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(100, 10, 100)">&lt;</span> <span style="color: rgb(10, 20, 10)">'\n'</span>;
+    <br>
+    }<br>
+</h3>
+
+
+<h2>question 2: what's the output? </h2>
+<h3>
+   
+#<span style="color: rgb(100, 100, 200)">include</span> <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(0, 100, 0)">iostream</span><span style="color: rgb(100, 10, 100)">&gt;</span>
+<br>
+#<span style="color: rgb(100, 100, 200)">include</span> <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(0, 100, 0)">iomanip</span><span style="color: rgb(100, 10, 100)">&gt;</span>
+<br>
+
+<br>
+<span style="color: rgb(10, 20, 200)">class</span> Class {
+<br>
+    <span style="color: rgb(100, 20, 200)">&nbsp;&nbsp;&nbsp;&nbsp;int</span> Value;
+<br>
+<span style="color: rgb(40, 100, 20)">public</span>:
+<br>
+    <span style="color: rgb(100, 20, 200)">&nbsp;&nbsp;&nbsp;&nbsp;explicit</span> Class<span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 20, 200)">int</span> value<span style="color: rgb(100, 100, 100)">)</span> : Value<span style="color: rgb(100, 100, 100)">(</span>value<span style="color: rgb(100, 100, 100)">)</span> {}
+<br>
+
+<br>
+    <span style="color: rgb(100, 20, 200)">&nbsp;&nbsp;&nbsp;&nbsp;int</span> GetValue<span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">)</span> <span style="color: rgb(100, 20, 200)">noexcept</span> {
+<br>
+        <span style="color: rgb(40, 100, 20)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return</span> this-<span style="color: rgb(100, 10, 100)">&gt;</span>Value;
+<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;}
+<br>
+
+<br>
+    <span style="color: rgb(100, 20, 200)">&nbsp;&nbsp;&nbsp;&nbsp;static</span> <span style="color: rgb(100, 20, 200)">inline</span> <span style="color: rgb(100, 20, 200)">int</span> Function<span style="color: rgb(100, 100, 100)">(</span>Class value<span style="color: rgb(100, 100, 100)">)</span> {
+<br>
+        <span style="color: rgb(40, 100, 20)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return</span> value.GetValue<span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">)</span>;
+<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;}
+<br>
+};
+<br>
+
+<br>
+<span style="color: rgb(100, 20, 200)">int</span> <span style="color: rgb(200, 100, 50)">main</span><span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">)</span> {
+<br>
+    <span style="color: rgb(0, 100, 0)">&nbsp;&nbsp;&nbsp;&nbsp;std</span>::cout <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(100, 10, 100)">&lt;</span> <span style="color: rgb(0, 100, 0)">std</span>::<span style="color: rgb(50, 100, 50)">boolalpha</span> <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(100, 10, 100)">&lt;</span> <span style="color: rgb(100, 100, 100)">(</span>Class::Function<span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(10, 20, 10)">'g'</span><span style="color: rgb(100, 100, 100)">)</span> <span style="color: rgb(100, 10, 100)">=</span><span style="color: rgb(100, 10, 100)">=</span> <span style="color: rgb(50, 100, 50)">static_cast</span><span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(100, 20, 200)">int</span><span style="color: rgb(100, 10, 100)">&gt;</span><span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(10, 20, 10)">'g'</span><span style="color: rgb(100, 100, 100)">)</span><span style="color: rgb(100, 100, 100)">)</span> <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(100, 10, 100)">&lt;</span> <span style="color: rgb(10, 20, 10)">'\n'</span>;
+<br>
+}<br>
+</h3>
+
+<h2>question 3: what's the output? </h2>
+<h3>
+    #<span style="color: rgb(100, 100, 200)">include</span> <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(0, 100, 0)">iostream</span><span style="color: rgb(100, 10, 100)">&gt;</span>
+    <br>
+    #<span style="color: rgb(100, 100, 200)">include</span> <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(0, 100, 0)">vector</span><span style="color: rgb(100, 10, 100)">&gt;</span>
+    <br>
+    #<span style="color: rgb(100, 100, 200)">include</span> <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(0, 100, 0)">type_traits</span><span style="color: rgb(100, 10, 100)">&gt;</span>
+    <br>
+    #<span style="color: rgb(100, 100, 200)">include</span> <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(0, 100, 0)">iomanip</span><span style="color: rgb(100, 10, 100)">&gt;</span>
+    <br>
+    #<span style="color: rgb(100, 100, 200)">include</span> <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(0, 100, 0)">typeinfo</span><span style="color: rgb(100, 10, 100)">&gt;</span>
+    <br>
+    #<span style="color: rgb(100, 100, 200)">include</span> <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(0, 100, 0)">any</span><span style="color: rgb(100, 10, 100)">&gt;</span>
+    <br>
+    
+    <br>
+    <span style="color: rgb(100, 20, 200)">int</span> <span style="color: rgb(200, 100, 50)">main</span><span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">)</span> {
+    <br>
+        <span style="color: rgb(0, 100, 0)">&nbsp;&nbsp;&nbsp;&nbsp;std</span>::<span style="color: rgb(0, 100, 0)">vector</span><span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(10, 250, 20)">bool</span><span style="color: rgb(100, 10, 100)">&gt;</span> Val {
+    <br>
+            <span style="color: rgb(200, 20, 69)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;false</span>,
+    <br>
+            <span style="color: rgb(100, 200, 31)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;true</span>,
+    <br>
+            <span style="color: rgb(200, 20, 69)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;false</span>,
+    <br>
+            <span style="color: rgb(200, 20, 69)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;false</span>,
+    <br>
+            <span style="color: rgb(200, 20, 69)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;false</span>,
+    <br>
+            <span style="color: rgb(100, 200, 31)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;true</span>,
+    <br>
+            <span style="color: rgb(100, 200, 31)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;true</span>,
+    <br>
+            <span style="color: rgb(100, 200, 31)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;true</span>,
+    <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;};
+    <br>
+    
+    <br>
+        <span style="color: rgb(0, 100, 0)">&nbsp;&nbsp;&nbsp;&nbsp;std</span>::<span style="color: rgb(0, 100, 0)">any</span> value <span style="color: rgb(100, 10, 100)">=</span> Val.front<span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">)</span>;
+    <br>
+    
+    <br>
+        <span style="color: rgb(0, 100, 0)">&nbsp;&nbsp;&nbsp;&nbsp;std</span>::cout <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(100, 10, 100)">&lt;</span> <span style="color: rgb(0, 100, 0)">std</span>::<span style="color: rgb(50, 100, 50)">boolalpha</span> <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(100, 10, 100)">&lt;</span> <span style="color: rgb(100, 100, 100)">(</span>value.type<span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">)</span>.<span style="color: rgb(200, 100, 50)">hash_code</span><span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">)</span> <span style="color: rgb(100, 10, 100)">=</span><span style="color: rgb(100, 10, 100)">=</span> <span style="color: rgb(200, 100, 50)">typeid</span><span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(10, 250, 20)">bool</span><span style="color: rgb(100, 100, 100)">)</span>.<span style="color: rgb(200, 100, 50)">hash_code</span><span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">)</span><span style="color: rgb(100, 100, 100)">)</span> <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(100, 10, 100)">&lt;</span> <span style="color: rgb(10, 20, 10)">'\n'</span>;
+    <br>
+    }<br>
+</h3>
+
+
+<h2>question 4: what's the output? </h2>
+<h3>
+    #<span style="color: rgb(100, 100, 200)">include</span> <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(0, 100, 0)">iostream</span><span style="color: rgb(100, 10, 100)">&gt;</span>
+<br>
+<span style="color: rgb(10, 20, 200)">class</span> Y {
+<br>
+<span style="color: rgb(40, 100, 20)">public</span>:
+<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;Y<span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">)</span> <span style="color: rgb(100, 10, 100)">=</span> <span style="color: rgb(100, 20, 200)">default</span>;
+<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;~Y<span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">)</span> <span style="color: rgb(100, 10, 100)">=</span> <span style="color: rgb(100, 20, 200)">default</span>;
+<br>
+
+<br>
+    <span style="color: rgb(10, 20, 200)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class</span> Z {
+<br>
+    <span style="color: rgb(40, 100, 20)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public</span>:
+<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Z<span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">)</span> <span style="color: rgb(100, 10, 100)">=</span> <span style="color: rgb(100, 20, 200)">default</span>;
+<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~Z<span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">)</span> <span style="color: rgb(100, 10, 100)">=</span> <span style="color: rgb(100, 20, 200)">default</span>;
+<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};
+<br>
+};
+<br>
+
+<br>
+<span style="color: rgb(10, 20, 200)">class</span> Q {
+<br>
+<span style="color: rgb(40, 100, 20)">public</span>:
+<br>
+    <span style="color: rgb(100, 20, 200)">&nbsp;&nbsp;&nbsp;&nbsp;template</span><span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(10, 250, 20)">typename</span> Val<span style="color: rgb(100, 10, 100)">&gt;</span>
+<br>
+    <span style="color: rgb(100, 20, 200)">&nbsp;&nbsp;&nbsp;&nbsp;void</span> Data<span style="color: rgb(100, 100, 100)">(</span>Val::Z value<span style="color: rgb(100, 100, 100)">)</span> {
+<br>
+        <span style="color: rgb(40, 100, 20)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return</span>;
+<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;}
+<br>
+
+<br>
+    <span style="color: rgb(100, 20, 200)">&nbsp;&nbsp;&nbsp;&nbsp;void</span> Data<span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 20, 200)">int</span> value<span style="color: rgb(100, 100, 100)">)</span> {
+<br>
+        <span style="color: rgb(0, 100, 0)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;std</span>::cout <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(100, 10, 100)">&lt;</span> value <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(100, 10, 100)">&lt;</span> <span style="color: rgb(10, 20, 10)">'\n'</span>;
+<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;}
+<br>
+};
+<br>
+
+<br>
+<span style="color: rgb(100, 20, 200)">int</span> <span style="color: rgb(200, 100, 50)">main</span><span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">)</span> {
+<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;Q q;
+<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;q.Data<span style="color: rgb(100, 100, 100)">(</span>13<span style="color: rgb(100, 100, 100)">)</span>;
+<br>
+}<br>
+</h3>
+
+<h2>question 5: what's the output? </h2>
+<h3>
+    <span style="color: rgb(100, 20, 200)">int</span> Function<span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 20, 200)">int</span> arg<span style="color: rgb(100, 100, 100)">)</span> <span style="color: rgb(100, 20, 200)">noexcept</span> {
+        <br>
+            <span style="color: rgb(100, 20, 200)">&nbsp;&nbsp;&nbsp;&nbsp;static</span> <span style="color: rgb(100, 20, 200)">int</span> value <span style="color: rgb(100, 10, 100)">=</span> Function<span style="color: rgb(100, 100, 100)">(</span>arg <span style="color: rgb(100, 10, 100)">+</span> 1<span style="color: rgb(100, 100, 100)">)</span>;
+        <br>
+            <span style="color: rgb(40, 100, 20)">&nbsp;&nbsp;&nbsp;&nbsp;return</span> arg <span style="color: rgb(100, 10, 100)">+</span> 1;
+        <br>
+        }
+        <br>
+        
+        <br>
+        <span style="color: rgb(100, 20, 200)">int</span> <span style="color: rgb(200, 100, 50)">main</span><span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">)</span> {
+        <br>
+            <span style="color: rgb(40, 100, 20)">&nbsp;&nbsp;&nbsp;&nbsp;return</span> Function<span style="color: rgb(100, 100, 100)">(</span>0<span style="color: rgb(100, 100, 100)">)</span>;
+        <br>
+        }<br>
+</h3>
+
+
+<h2>question 6: what's the output? </h2>
+<h3>
+    
+
+    <br>
+    #<span style="color: rgb(100, 100, 200)">include</span> <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(0, 100, 0)">iostream</span><span style="color: rgb(100, 10, 100)">&gt;</span>
+    <br>
+    
+    <br>
+    <span style="color: rgb(100, 20, 200)">int</span> <span style="color: rgb(200, 100, 50)">main</span><span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">)</span> <span style="color: rgb(100, 20, 200)">noexcept</span><span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(200, 250, 100)">nullptr</span> <span style="color: rgb(100, 10, 100)">=</span><span style="color: rgb(100, 10, 100)">=</span> <span style="color: rgb(200, 250, 100)">NULL</span><span style="color: rgb(100, 100, 100)">)</span><span style="color: rgb(100, 100, 100)">)</span> {
+    <br>
+        <span style="color: rgb(0, 100, 0)">&nbsp;&nbsp;&nbsp;&nbsp;std</span>::cout <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(100, 10, 100)">&lt;</span> <span style="color: rgb(10, 20, 10)">'0'</span> <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(100, 10, 100)">&lt;</span> <span style="color: rgb(10, 20, 10)">'\n'</span>;
+    <br>
+        <span style="color: rgb(100, 100, 200)">&nbsp;&nbsp;&nbsp;&nbsp;throw</span> 0;
+    <br>
+    }<br>
+</h3>
+
+<h2>question 7: what's the output? </h2>
+<h3>
+    
+
+    <br>
+    #<span style="color: rgb(100, 100, 200)">include</span> <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(0, 100, 0)">iostream</span><span style="color: rgb(100, 10, 100)">&gt;</span>
+    <br>
+    
+    <br>
+    <span style="color: rgb(100, 20, 200)">int</span> <span style="color: rgb(200, 100, 50)">main</span><span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">)</span> {
+    <br>
+        <span style="color: rgb(105, 30, 20)">&nbsp;&nbsp;&nbsp;&nbsp;if</span><span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 10, 100)">!</span><span style="color: rgb(200, 250, 100)">nullptr</span><span style="color: rgb(100, 100, 100)">)</span> {
+    <br>
+            <span style="color: rgb(0, 100, 0)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;std</span>::cout <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(100, 10, 100)">&lt;</span>'1'<span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(100, 10, 100)">&lt;</span> <span style="color: rgb(10, 20, 10)">'\n'</span>;
+    <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;} <span style="color: rgb(105, 30, 20)">&nbsp;else</span> {
+    <br>
+            <span style="color: rgb(0, 100, 0)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;std</span>::cout <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(100, 10, 100)">&lt;</span>'0'<span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(100, 10, 100)">&lt;</span> <span style="color: rgb(10, 20, 10)">'\n'</span>;
+    <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}
+    <br>
+    }<br>
+</h3>
+
+<h2>question 8: what's the output? </h2>
+<h3>
+    #<span style="color: rgb(100, 100, 200)">include</span> <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(0, 100, 0)">iostream</span><span style="color: rgb(100, 10, 100)">&gt;</span>
+    <br>
+    
+    <br>
+    <span style="color: rgb(100, 20, 200)">int</span> <span style="color: rgb(200, 100, 50)">main</span><span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">)</span> <span style="color: rgb(100, 20, 200)">noexcept</span><span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 200, 31)">true</span><span style="color: rgb(100, 100, 100)">)</span> {
+    <br>
+        <span style="color: rgb(0, 100, 0)">&nbsp;&nbsp;&nbsp;&nbsp;std</span>::<span style="color: rgb(100, 20, 30)">int8_t</span> value <span style="color: rgb(100, 10, 100)">=</span> 255;
+    <br>
+        <span style="color: rgb(100, 10, 100)">&nbsp;&nbsp;&nbsp;&nbsp;+</span><span style="color: rgb(100, 10, 100)">+</span>value;
+    <br>
+        <span style="color: rgb(0, 100, 0)">&nbsp;&nbsp;&nbsp;&nbsp;std</span>::cout <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(100, 10, 100)">&lt;</span> value <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(100, 10, 100)">&lt;</span> <span style="color: rgb(10, 20, 10)">'\n'</span>;
+    <br>
+    }<br>
+</h3>
+
+<h2>question 9: what's the output? </h2>
+<h3>
+    
+#<span style="color: rgb(100, 100, 200)">include</span> <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(0, 100, 0)">iostream</span><span style="color: rgb(100, 10, 100)">&gt;</span>
+<br>
+#<span style="color: rgb(100, 100, 200)">include</span> <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(0, 100, 0)">functional</span><span style="color: rgb(100, 10, 100)">&gt;</span>
+<br>
+
+<br>
+<span style="color: rgb(10, 20, 200)">class</span> X {
+<br>
+<span style="color: rgb(40, 100, 20)">public</span>:
+<br>
+    <span style="color: rgb(100, 20, 200)">&nbsp;&nbsp;&nbsp;&nbsp;void</span> Function<span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(0, 100, 0)">std</span>::<span style="color: rgb(10, 20, 200)">function</span><span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(100, 20, 200)">int</span><span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">)</span><span style="color: rgb(100, 10, 100)">&gt;</span> func <span style="color: rgb(100, 10, 100)">=</span> <span style="color: rgb(100, 100, 100)">[</span><span style="color: rgb(100, 100, 100)">]</span><span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">)</span> {
+<br>
+        <span style="color: rgb(40, 100, 20)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return</span> 13;
+<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;}<span style="color: rgb(100, 100, 100)">)</span> {
+<br>
+        <span style="color: rgb(0, 100, 0)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;std</span>::cout <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(100, 10, 100)">&lt;</span> func<span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">)</span> <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(100, 10, 100)">&lt;</span> <span style="color: rgb(10, 20, 10)">'\n'</span>;
+<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;}
+<br>
+};
+<br>
+
+<br>
+<span style="color: rgb(100, 20, 200)">int</span> Function<span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">)</span> {
+<br>
+    <span style="color: rgb(40, 100, 20)">&nbsp;&nbsp;&nbsp;&nbsp;return</span> 0;
+<br>
+}
+<br>
+
+<br>
+<span style="color: rgb(100, 20, 200)">int</span> <span style="color: rgb(200, 100, 50)">main</span><span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">)</span> {
+<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;X x;
+<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;x.Function<span style="color: rgb(100, 100, 100)">(</span>Function<span style="color: rgb(100, 100, 100)">)</span>;
+<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;x.Function<span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">)</span>;
+<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;x.Function<span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">[</span><span style="color: rgb(100, 100, 100)">]</span><span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">)</span>{ <span style="color: rgb(40, 100, 20)">return</span> 2; }<span style="color: rgb(100, 100, 100)">)</span>;
+<br>
+}<br>
+</h3>
+
+<h2>question 10: what's the output? </h2>
+<h3>
+
+    <span style="color: rgb(100, 20, 200)">template</span><span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(10, 250, 20)">typename</span> X, <span style="color: rgb(10, 250, 20)">typename</span> Y <span style="color: rgb(100, 10, 100)">=</span> <span style="color: rgb(100, 20, 200)">int</span><span style="color: rgb(100, 10, 100)">&gt;</span>
+    <br>
+    <span style="color: rgb(100, 20, 200)">void</span> Function<span style="color: rgb(100, 100, 100)">(</span>X argument, Y argument2 <span style="color: rgb(100, 10, 100)">=</span> 13<span style="color: rgb(100, 100, 100)">)</span> {
+    <br>
+        <span style="color: rgb(40, 100, 20)">&nbsp;&nbsp;&nbsp;&nbsp;return</span>;
+    <br>
+    }
+    <br>
+    
+    <br>
+    <span style="color: rgb(100, 20, 200)">int</span> <span style="color: rgb(200, 100, 50)">main</span><span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">)</span> {
+    <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;Function<span style="color: rgb(100, 10, 100)">&lt;</span>double<span style="color: rgb(100, 10, 100)">&gt;</span><span style="color: rgb(100, 100, 100)">(</span>13.0<span style="color: rgb(100, 100, 100)">)</span>;
+    <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;Function<span style="color: rgb(100, 10, 100)">&lt;</span>double, double<span style="color: rgb(100, 10, 100)">&gt;</span><span style="color: rgb(100, 100, 100)">(</span>13.0, 2.0<span style="color: rgb(100, 100, 100)">)</span>;
+    <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;Function<span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">)</span>;
+    <br>
+    }<br>
+</h3>
+
+<h1>.<br>.<br>.<br>.<br>answers:<br><br></h1>
+<h2>question 1:</h2>
+<h3>9.7.1:5 [dcl.enum] says that,<br></h3>
+
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Each enumeration defines a type that is different from all other types.<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Each enumeration also has an underlying<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type. The underlying type can be explicitly specified using an enum-base. For a scoped enumeration type, the<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;underlying type is int if it is not explicitly specified. In both of these cases, the underlying type is said to be<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fixed. Following the closing brace of an enum-specifier, each enumerator has the type of its enumeration. If<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the underlying type is fixed, the type of each enumerator prior to the closing brace is the underlying type and<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the constant-expression in the enumerator-definition shall be a converted constant expression of the underlying<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type (7.7). If the underlying type is not fixed, the type of each enumerator prior to the closing brace is<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;determined as follows:<br><br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;— If an initializer is specified for an enumerator, the constant-expression shall be an integral constant<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expression (7.7). If the expression has unscoped enumeration type, the enumerator has the underlying<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type of that enumeration type, otherwise it has the same type as the expression.<br><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;— If no initializer is specified for the first enumerator, its type is an unspecified signed integral type.<br><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;— Otherwise the type of the enumerator is the same as that of the preceding enumerator unless the<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;incremented value is not representable in that type, in which case the type is an unspecified integral<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type sufficient to contain the incremented value. If no such type exists, the program is ill-formed.<br><br>
+
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;so, correct answer is 0<br><br><br></h3>
+
+<h2>question 2:</h2>
+<h3>11.4.7.1:2 [class.conv.ctor] says that,<br></h3>
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...An explicit constructor constructs objects just like non-explicit constructors, but does so only where the<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;direct-initialization syntax (9.4) or where casts (7.6.1.8, 7.6.3) are explicitly used; see also 12.4.1.4. A default<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;constructor may be an explicit constructor; such a constructor will be used to perform default-initialization<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or value-initialization (9.4)...<br><br>
+
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;so, this code won't be compiled due compile errors.<br><br><br></h3>
+
+
+<h2>question 3:</h2>
+<h3>22.3.12:3 [vector.bool] says that,<br></h3>
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;There is no requirement that the data be stored as a contiguous allocation of bool values. A space-optimized<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;representation of bits is recommended instead<br><br>
+    
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;it's implementation defined. so depends on the compiler.<br><br><br></h3>
+
+
+<h2>question 4:</h2>
+<h3>13.10.3:1 [temp.over] and 13.10.2:7 [temp.deduct] says that,<br></h3>
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;When a call to the name of a function or function template is written (explicitly, or implicitly using the operator<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;notation), template argument deduction (13.10.2) and checking of any explicit template arguments (13.4)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;are performed for each function template to find the template argument values (if any) that can be used<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with that function template to instantiate a function template specialization that can be invoked with<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the call arguments. For each function template, if the argument deduction and checking succeeds, the<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;template-arguments (deduced and/or explicit) are used to synthesize the declaration of a single function<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;template specialization which is added to the candidate functions set to be used in overload resolution. If,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for a given function template, argument deduction fails or the synthesized function template specialization<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;would be ill-formed, no such function is added to the set of candidate functions for that template. The<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;complete set of candidate functions includes all the synthesized declarations and all of the non-template<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;overloaded functions of the same name. The synthesized declarations are treated like any other functions in<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the remainder of overload resolution, except as explicitly noted in 12.4.3.<br><br>
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The substitution occurs in all types and expressions that are used in the function type and in template<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parameter declarations. The expressions include not only constant expressions such as those that appear in<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;array bounds or as nontype template arguments but also general expressions (i.e., non-constant expressions)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inside sizeof, decltype, and other contexts that allow non-constant expressions. The substitution proceeds<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in lexical order and stops when a condition that causes deduction to fail is encountered. If substitution into<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;different declarations of the same function template would cause template instantiations to occur in a different<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;order or not at all, the program is ill-formed; no diagnostic required. [Note: The equivalent substitution in<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exception specifications is done only when the noexcept-specifier is instantiated, at which point a program is<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ill-formed if the substitution results in an invalid type or expression...<br><br>
+    
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;correct answer is 13. this state called as sfinae, which means substitution failure is not an error.<br><br><br></h3>
+
+
+
+<h2>question 5:</h2>
+<h3>8.8:4 [stmt.dcl] says that,<br></h3>
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dynamic initialization of a block-scope variable with static storage duration (6.7.5.1) or thread storage<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;duration (6.7.5.2) is performed the first time control passes through its declaration; such a variable is<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;considered initialized upon the completion of its initialization. If the initialization exits by throwing an<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exception, the initialization is not complete, so it will be tried again the next time control enters the declaration.<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If control enters the declaration concurrently while the variable is being initialized, the concurrent execution<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shall wait for completion of the initialization.85 If control re-enters the declaration recursively while the<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;variable is being initialized, the behavior is undefined.<br><br>
+    
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;correct answer is undefined behavior.<br><br><br></h3>
+
+<h2>question 6:</h2>
+<h3>7.3.11:1 [conv.ptr] says that,<br></h3>
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A null pointer constant is an integer literal (5.13.2) with value zero or a prvalue of type std::nullptr_t. A<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;null pointer constant can be converted to a pointer type; the result is the null pointer value of that type (6.8.2)<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and is distinguishable from every other value of object pointer or function pointer type. Such a conversion<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is called a null pointer conversion. Two null pointer values of the same type shall compare equal. The<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;conversion of a null pointer constant to a pointer to cv-qualified type is a single conversion, and not the<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sequence of a pointer conversion followed by a qualification conversion (7.3.5). A null pointer constant of<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;integral type can be converted to a prvalue of type std::nullptr_t. [Note: The resulting prvalue is not a<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;null pointer value.<br><br>
+    
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;so, this code won't be compiled due compile errors.<br><br><br></h3>
+
+<h2>question 7:</h2>
+<h3>7.3.14:1 [conv.bool] says that,<br></h3>
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A prvalue of arithmetic, unscoped enumeration, pointer, or pointer-to-member type can be converted to a<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prvalue of type bool. A zero value, null pointer value, or null member pointer value is converted to false;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;any other value is converted to true.<br><br>
+    
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;correct answer is 1.<br><br><br></h3>
+
+<h2>question 8:</h2>
+<h3>7.7:5.7 [expr.const] says that,<br></h3>
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;an operation that would have undefined behavior as specified in Clause 4 through Clause 15 of this<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document [Note: including, for example, signed integer overflow (7.2), certain pointer arithmetic (7.6.6),<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;division by zero (7.6.5), or certain shift operations (7.6.7)...<br><br>
+    
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;correct answer is undefined behavior.<br><br><br></h3>
+
+<h2>question 9:</h2>
+<h3>9.3.3.6:1 [dcl.fct.default] and 9.3.3.6:3 [dcl.fct.default] says that,<br></h3>
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If an initializer-clause is specified in a parameter-declaration this initializer-clause is used as a default argument.<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Note: Default arguments will be used in calls where trailing arguments are missing (7.6.1.2)...<br><br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A default argument shall be specified only in the parameter-declaration-clause of a function declaration<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or lambda-declarator or in a template-parameter (13.2); in the latter case, the initializer-clause shall be an<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assignment-expression. A default argument shall not be specified for a template parameter pack or a function<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parameter pack. If it is specified in a parameter-declaration-clause, it shall not occur within a declarator or<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;abstract-declarator of a parameter-declaration.<br><br>
+    
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;correct answer is 0 13 2.<br><br><br></h3>
+
+
+<h2>question 10:</h2>
+<h3>13.10.2:5 [temp.deduct] says that,<br></h3>
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The resulting substituted and adjusted function type is used as the type of the function template for template<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;argument deduction. If a template argument has not been deduced and its corresponding template parameter<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;has a default argument, the template argument is determined by substituting the template arguments<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;determined for preceding template parameters into the default argument. If the substitution results in an<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;invalid type, as described above, type deduction fails...<br><br>
+    
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;so, this code won't be compiled due compile errors at 'Function()'<br><br><br></h3>
+
+
+<h2>definitions from c++20 iso draft:</h2>
+<h2>&nbsp;&nbsp;implementation-defined behavior, 3.13 [defns.impl.defined]:</h2>
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;behavior, for a well-formed program construct and correct data, that depends on the implementation and<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;that each implementation document<br><br><br></h3>
+
+<h2>&nbsp;&nbsp;undefined behavior, 3.30 [defns.undefined]:</h2>
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;behavior for which this document imposes no requirements<br><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Note 1 to entry: Undefined behavior may be expected when this document omits any explicit definition of<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;behavior or when a program uses an erroneous construct or erroneous data. Permissible undefined behavior<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ranges from ignoring the situation completely with unpredictable results, to behaving during translation or<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;program execution in a documented manner characteristic of the environment (with or without the issuance<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of a diagnostic message), to terminating a translation or execution (with the issuance of a diagnostic message).<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Many erroneous program constructs do not engender undefined behavior; they are required to be diagnosed...<br><br><br></h3>
+
+<h2>&nbsp;&nbsp;unspecified behavior, 3.31 [defns.unspecified]:</h2>
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;behavior, for a well-formed program construct and correct data, that depends on the implementation<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Note 1 to entry: The implementation is not required to document which behavior occurs. The range of<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;possible behaviors is usually delineated by this document...<br><br><br></h3>
+</h3>
+
+<h3>iso c++20 n4860 draft: <a href="https://isocpp.org/files/papers/N4860.pdf">https://isocpp.org/files/papers/N4860.pdf</a></h3>
+<h3>if you think about the answers or anything else is wrong,<br>please create an issue from github issues.</h3>
+
+
+</body>
+</html>
