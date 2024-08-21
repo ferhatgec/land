@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>What the hell is noexcept(noexcept())?</title>
+</head>
+<style>
+    @font-face {
+      font-family: "JetBrains Mono";
+      src: url(../../sources/font/JetBrainsMono-Regular.woff2);
+    }
+    a, h1, h2, h3, h4, h5, p, * {
+        font-family: "JetBrains Mono";
+    }
+</style>
+C++ has got some keywords, some of them handled differently in different contexts, depending on situation.<br>
+Today, we will talk about <span style="color: rgb(100, 20, 200)">noexcept</span>.<br>
+
+<h2>What the hell is <span style="color: rgb(100, 20, 200)">noexcept</span>(<span style="color: rgb(100, 20, 200)">noexcept</span>())?</h2>
+<span style="color: rgb(100, 20, 200)">noexcept</span> is a specifier which tells to compiler that "I will not throw any kind of exceptions those cannot be caught inside of function body, they leak outside!".<br>
+<br>
+It's a kind of guarantee to compiler, so compiler can do some tricky optimizations.<br>
+<span style="color: rgb(100, 20, 200)">noexcept</span> can be in form of function specifier or operator. <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4950.pdf#page=467" target="_tab">[except.spec/1]</a><br>
+
+<h2><span style="color: rgb(100, 20, 200)">noexcept</span> as an operator</h2>
+<span style="color: rgb(100, 20, 200)">noexcept</span> as an operator, checks given expression is potentially-throwing or not. Yes. It just checks that.<br>
+Buuut. Given expression will not be evaluated. Let's take a look:<br><br>
+
+#<span style="color: rgb(100, 100, 200)">include</span> <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(0, 100, 0)">iostream</span><span style="color: rgb(100, 10, 100)">&gt;</span>
+<span style="color: rgb(122, 126, 133)"> // std::cout</span><br>
+#<span style="color: rgb(100, 100, 200)">include</span> <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(0, 100, 0)">iomanip</span><span style="color: rgb(100, 10, 100)">&gt;</span>
+<span style="color: rgb(122, 126, 133)"> // std::boolalpha</span><br>
+
+<br>
+<span style="color: rgb(10, 20, 200)">class</span> X {<br>
+<span style="color: rgb(40, 100, 20)">public</span>:<br>
+&nbsp;&nbsp;X <span style="color: rgb(100, 20, 200)">operator+</span>(<span style="color: rgb(100, 20, 200)">int</span>) <span style="color: rgb(100, 20, 200)">const noexcept</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: rgb(40, 100, 20)">return</span> *this;<br>
+&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;X <span style="color: rgb(100, 20, 200)">operator-</span>(<span style="color: rgb(100, 20, 200)">float</span>) <span style="color: rgb(100, 20, 200)">const</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: rgb(40, 100, 20)">return</span> *this;<br>
+&nbsp;&nbsp;}<br>
+};<br>
+<br>
+<span style="color: rgb(100, 20, 200)">int</span> main() {<br>
+&nbsp;&nbsp;<span style="color: rgb(100, 20, 200)">auto</span>& Out = <span style="color: rgb(0, 100, 0)">std</span>::cout << <span style="color: rgb(0, 100, 0)">std</span>::boolalpha; <span style="color: rgb(122, 126, 133)">// reference to std::ostream, used for shortening std::cout << std::boolalpha, nothing fancy</span><br>
+&nbsp;&nbsp;<span style="color: rgb(100, 20, 200)">int</span> a { 0 }; <span style="color: rgb(122, 126, 133)">// direct initialized.</span><br>
+&nbsp;&nbsp;Out << <span style="color: rgb(100, 20, 200)">noexcept</span>(a = 1) << '\n'; <span style="color: rgb(122, 126, 133)">// `a` will stay same. result is `true`. it satisfies all conditions of
+<a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4950.pdf#page=468" target="_tab">[except.spec/6]</a> since it's primitive type.</span>
+<br>
+&nbsp;&nbsp;X b; <span style="color: rgb(122, 126, 133)">// default initialized</span><br>
+&nbsp;&nbsp;Out << <span style="color: rgb(100, 20, 200)">noexcept</span>(b + 1) << '\n'; <span style="color: rgb(122, 126, 133)">// compiler will look at the operator+(X, int), which is marked as noexcept(true).</span><br>
+&nbsp;&nbsp;Out << <span style="color: rgb(100, 20, 200)">noexcept</span>(b - 1.f) << '\n'; <span style="color: rgb(122, 126, 133)">// compiler will look at the operator-(X, float), which is marked as noexcept(false).
+<a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4950.pdf#page=467" target="_tab">[except.spec/3]</a></span><br>
+&nbsp;&nbsp;<span style="color: rgb(40, 100, 20)">return</span> 0;<br>
+}<br>
+<br>
+<h2>Alright. That's cool. What about <span style="color: rgb(100, 20, 200)">noexcept</span> as a function specifier?</h2>
+<span style="color: rgb(100, 20, 200)">noexcept</span> as a function specifier marks your function as <span style="color: rgb(100, 20, 200)">noexcept</span>(<span style="color: rgb(100, 200, 31)">true</span>) or <span style="color: rgb(100, 20, 200)">noexcept</span>(<span style="color: rgb(100, 200, 31)">false</span>) depending on given or not boolean argument.<br>
+by default, functions are marked as <span style="color: rgb(100, 20, 200)">noexcept</span>(<span style="color: rgb(100, 200, 31)">false</span>).
+<a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4950.pdf#page=467" target="_tab">[except.spec/3]</a><br>
+If argument is not provided -as just plain `<span style="color: rgb(100, 20, 200)">noexcept</span>`- then function will be marked as <span style="color: rgb(100, 20, 200)">noexcept</span>(<span style="color: rgb(100, 200, 31)">true</span>).<br>
+If provided, then; given expression must be *compile time evaluatable, so expression is constant expression* -since <span style="color: rgb(100, 20, 200)">noexcept</span> will perform compile time checks on function-,<br>
+and given expression will be contextually converted to <span style="color: rgb(100, 20, 200)">bool</span>
+(<a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4950.pdf#page=467" target="_tab">[except.spec/2]</a>).
+if expression is not constant expression or expression cannot convertable to <span style="color: rgb(100, 20, 200)">bool</span>; compile time error will be occurred.<br>
+<br>
+Let's look at possible ways to use <span style="color: rgb(100, 20, 200)">noexcept</span> function specifier,<br>
+normally <span style="color: rgb(100, 20, 200)">noexcept</span> specifier includes <span style="color: rgb(100, 20, 200)">noexcept</span> operator too; but we are explicitly saying "function specifier" to resolve any ambiguity:<br>
+
+<br>
+&nbsp;&nbsp;<span style="color: rgb(100, 20, 200)">void</span> foo() <span style="color: rgb(100, 20, 200)">noexcept</span> {} <span style="color: rgb(122, 126, 133)">// same as noexcept(true), foo() is marked as noexcept.</span><br>
+&nbsp;&nbsp;<span style="color: rgb(100, 20, 200)">void</span> bar() {} <span style="color: rgb(122, 126, 133)">// same as noexcept(false), bar() is marked as potentially throwing.</span><br>
+&nbsp;&nbsp;<span style="color: rgb(100, 20, 200)">void</span> baz() <span style="color: rgb(100, 20, 200)">noexcept</span>(<span style="color: rgb(100, 20, 200)">sizeof</span>(<span style="color: rgb(100, 20, 200)">bool</span>) == 1) {} <span style="color: rgb(122, 126, 133)">// we can't say anything directly, since it's implementation defined.</span>
+<a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4950.pdf#page=146" target="_tab">[expr.sizeof/1]</a><br>
+<br>
+
+<h2>Okay. So what is <span style="color: rgb(100, 20, 200)">noexcept</span>(<span style="color: rgb(100, 20, 200)">noexcept</span>()) then?</h2>
+So, we know that there is function specifier and operator form of <span style="color: rgb(100, 20, 200)">noexcept</span>. Inner <span style="color: rgb(100, 20, 200)">noexcept</span>() is an operator<br>
+which looks if given argument is potentially throwing any exceptions.<br>
+Outer <span style="color: rgb(100, 20, 200)">noexcept</span> is exception specifier that takes optionally an expression and marks function or lambda as <span style="color: rgb(100, 20, 200)">noexcept</span>(<span style="color: rgb(100, 200, 31)">true</span>) or <span style="color: rgb(100, 20, 200)">noexcept</span>(<span style="color: rgb(100, 200, 31)">false</span>).<br>
+So, we can say that: "If given expression is <span style="color: rgb(100, 20, 200)">noexcept</span>, then I am <span style="color: rgb(100, 20, 200)">noexcept</span> too; or vice versa.".<br>
+<br>
+Let's look at an example:<br>
+
+<br>
+&nbsp;&nbsp;<span style="color: rgb(100, 20, 200)">void</span> foo() <span style="color: rgb(100, 20, 200)">noexcept</span> {} <span style="color: rgb(122, 126, 133)">// foo() is marked as noexcept</span><br>
+&nbsp;&nbsp;<span style="color: rgb(100, 20, 200)">void</span> bar() <span style="color: rgb(100, 20, 200)">noexcept</span>(<span style="color: rgb(100, 20, 200)">noexcept</span>(foo())) {} <span style="color: rgb(122, 126, 133)">// if foo() is noexcept, then bar() is noexcept too.</span><br>
+&nbsp;&nbsp;<span style="color: rgb(100, 20, 200)">void</span> baz() <span style="color: rgb(100, 20, 200)">noexcept</span>(<span style="color: rgb(100, 20, 200)">noexcept</span>(foo))) {} <span style="color: rgb(122, 126, 133)">// foo is always returns true, since it's not a function call, an identifier,</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<span style="color: rgb(122, 126, 133)">// which is not potentially throwing. satisfies all conditions.</span>
+<a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4950.pdf#page=468" target="_tab">[except.spec/6]</a><br>
+<br>
+
+<h3>Notes:</h3>
+* There may be floating point exceptions, but most (probably none) of them are not directly about C++ exceptions. Built-in operators will not throw exception<br>
+  since <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4950.pdf#page=468" target="_tab">[except.spec/6]</a> conditions are satisfied directly.<br>
+<br>
+* Used <a href="https://wg21.link/n4950">C++23 N4950 final working draft</a>.<br>
+<br>
+* If there is any wrong information or something can be added extra, please go to <a href="https://github.com/ferhatgec/land" target="_tab">repository</a>, and create new pull request. Thank you!<br>
+<br>
+<body>
+</body>
+</html>
