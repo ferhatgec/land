@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>You should use <numbers>.</title>
+</head>
+<style>
+    @font-face {
+        font-family: "JetBrains Mono";
+        src: url(../../sources/font/JetBrainsMono-Regular.woff2);
+    }
+    a, h1, h2, h3, h4, h5, p, * {
+        font-family: "JetBrains Mono";
+    }
+</style>
+<body>
+C++20 comes with super simple but really useful header, which is <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(0, 100, 0)">numbers</span><span style="color: rgb(100, 10, 100)">&gt;</span>!
+<h2>What is <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(0, 100, 0)">numbers</span><span style="color: rgb(100, 10, 100)">&gt;</span>?</h2>
+<span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(0, 100, 0)">numbers</span><span style="color: rgb(100, 10, 100)">&gt;</span> is type safe way to access mathematical constants.<br>
+That's it. Let's take a look at:<br>
+<br>
+#<span style="color: rgb(100, 100, 200)">include</span>&nbsp;<span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(20, 150, 20)">numbers</span><span style="color: rgb(100, 10, 100)">&gt;</span>&nbsp;<span style="color: rgb(122, 126, 133)">// std::numbers::pi_v<br>
+</span>#<span style="color: rgb(100, 100, 200)">include</span>&nbsp;<span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(20, 150, 20)">iostream</span><span style="color: rgb(100, 10, 100)">&gt;</span>&nbsp;<span style="color: rgb(122, 126, 133)">// std::cout<br>
+</span>#<span style="color: rgb(100, 100, 200)">include</span>&nbsp;<span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(20, 150, 20)">concepts</span><span style="color: rgb(100, 10, 100)">&gt;</span>&nbsp;<span style="color: rgb(122, 126, 133)">// std::floating_point<br>
+</span>#<span style="color: rgb(100, 100, 200)">include</span>&nbsp;<span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(20, 150, 20)">iomanip</span><span style="color: rgb(100, 10, 100)">&gt;</span>&nbsp;<span style="color: rgb(122, 126, 133)">// std::setprecision<br>
+</span><br>
+<span style="color: rgb(100, 20, 200)">template</span><span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(0, 100, 0)">std</span>::<span style="color: rgb(100, 20, 200)">floating_point</span>&nbsp;Fp<span style="color: rgb(100, 10, 100)">&gt;</span><br>
+<span style="color: rgb(100, 20, 200)">constexpr</span>&nbsp;Fp&nbsp;circumference_of_circle<span style="color: rgb(100, 100, 100)">(</span>Fp&nbsp;radius<span style="color: rgb(100, 100, 100)">)</span>&nbsp;<span style="color: rgb(100, 20, 200)">noexcept</span>&nbsp;{<br>
+&nbsp;&nbsp;<span style="color: rgb(40, 100, 20)">return</span>&nbsp;<span style="color: rgb(100, 20, 200)">static_cast</span><span style="color: rgb(100, 10, 100)">&lt;</span>Fp<span style="color: rgb(100, 10, 100)">&gt;</span><span style="color: rgb(100, 100, 100)">(</span>2<span style="color: rgb(100, 100, 100)">)</span>&nbsp;*&nbsp;<span style="color: rgb(0, 100, 0)">std</span>::<span style="color: rgb(20, 150, 20)">numbers</span>::pi_v<span style="color: rgb(100, 10, 100)">&lt;</span>Fp<span style="color: rgb(100, 10, 100)">&gt;</span>&nbsp;*&nbsp;radius;<br>
+}<br>
+<br>
+<span style="color: rgb(100, 20, 200)">int</span>&nbsp;main<span style="color: rgb(100, 100, 100)">(</span><span style="color: rgb(100, 100, 100)">)</span>&nbsp;{<br>
+&nbsp;&nbsp;<span style="color: rgb(122, 126, 133)">// circumference of a circle with radius of 2 as float<br>
+</span>&nbsp;&nbsp;<span style="color: rgb(122, 126, 133)">// show only 10 digit<br>
+</span>&nbsp;&nbsp;<span style="color: rgb(0, 100, 0)">std</span>::<span style="color: rgb(100, 20, 200)">cout</span>&nbsp;<span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(100, 10, 100)">&lt;</span>&nbsp;<span style="color: rgb(0, 100, 0)">std</span>::<span style="color: rgb(100, 20, 200)">setprecision</span><span style="color: rgb(100, 100, 100)">(</span>10<span style="color: rgb(100, 100, 100)">)</span>&nbsp;<span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(100, 10, 100)">&lt;</span>&nbsp;circumference_of_circle<span style="color: rgb(100, 100, 100)">(</span>2.f<span style="color: rgb(100, 100, 100)">)</span>&nbsp;<span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(100, 10, 100)">&lt;</span>&nbsp;<span style="color: rgb(100, 20, 10)">&#x27;\n&#x27;</span>;<br>
+&nbsp;&nbsp;<span style="color: rgb(40, 100, 20)">return</span> 0;<br>
+}<br>
+<br>
+As you can see, `_v` means `value`, so we are using `_v` suffix here to explicitly use `Fp` type; which can be <span style="color: rgb(100, 20, 200)">float</span>,
+<span style="color: rgb(100, 20, 200)">double</span>, <span style="color: rgb(100, 20, 200)">long double</span>, <span style="color: rgb(0, 100, 0)">std</span>::<span style="color: rgb(100, 20, 200)">float16_t</span>, etc. <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4950.pdf#page=88" target="_tab">[basic.extended.fp]</a><br>
+we could use `pi` directly if our `Fp` is `<span style="color: rgb(100, 20, 200)">double</span>` <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4950.pdf#page=1489" target="_tab">[numbers.syn]</a>;
+it's because `<span style="color: rgb(0, 100, 0)">std</span>::numbers::pi` is same as `<span style="color: rgb(0, 100, 0)">std</span>::numbers::pi_v&lt;<span style="color: rgb(100, 20, 200)">double</span>&gt;.<br>
+<br>
+Without <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(0, 100, 0)">numbers</span><span style="color: rgb(100, 10, 100)">&gt;</span>, we fall back on platform specific C-style macros.<br>
+Which are generally not type safe, they just do some text manipulation and insert them into your code.<br>
+It's also hard to debug sometimes, so you're probably not going to see macro expansions quickly; unless using IDEs (CLion has good built-in plugin for this) or something like <a href="https://github.com/andreasfertig/cppinsights">cppinsights</a>.<br>
+Also, <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(0, 100, 0)">cmath</span><span style="color: rgb(100, 10, 100)">&gt;</span> header might require to define something like "_USE_MATH_DEFINES", depending on platform
+(<a href="https://learn.microsoft.com/en-us/cpp/c-runtime-library/math-constants">Microsoft Learn</a>).<br>
+That's because mathematical constants are not part of <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(20, 150, 20)">cmath</span><span style="color: rgb(100, 10, 100)">&gt;</span>,
+and why <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(20, 150, 20)">numbers</span><span style="color: rgb(100, 10, 100)">&gt;</span> makes sense at this point.
+
+<br>
+<h3>constants list (contents of <span style="color: rgb(0, 100, 0)">std</span>::numbers): <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4950.pdf#page=1489" target="_tab">[numbers]</a></h3>
+<ul>
+  <li>e_v : <a href="https://en.wikipedia.org/wiki/E_(mathematical_constant)">Euler's number</a></li>
+  <li>log2e_v : log2(e)</li>
+  <li>log10e_v : log10(e)</li>
+  <li>pi_v : <a href="https://en.wikipedia.org/wiki/Pi">pi constant</a></li>
+  <li>inv_pi_v : 1 / pi</li>
+  <li>inv_sqrtpi_v : 1 / sqrt(pi)</li>
+  <li>ln2_v : ln2</li>
+  <li>ln10_v : ln10</li>
+  <li>sqrt2_v : sqrt(2)</li>
+  <li>sqrt3_v : sqrt(3)</li>
+  <li>inv_sqrt3_v : 1 / sqrt(3)</li>
+  <li>egamma_v : <a href="https://en.wikipedia.org/wiki/Euler%27s_constant">Euler-Mascheroni constant</a></li>
+  <li>phi_v : <a href="https://en.wikipedia.org/wiki/Golden_ratio">phi constant, golden ratio</a></li>
+</ul>
+<h2>It looks good, what if I do not have C++20 compliant compiler?</h2>
+You might want to use templates for this kind of thing, you can define <span style="color: rgb(100, 20, 200)">static</span> <span style="color: rgb(100, 20, 200)">constexpr</span> variables on a (global) namespace.<br>
+But this sure do require at least C++17 compliant compiler.<br>
+<br>
+Or you might want to use templates, then use `<span style="color: rgb(0, 100, 0)">std</span>::<span style="color: rgb(100, 20, 200)">is_floating_point</span>` from <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(20, 150, 20)">type_traits</span><span style="color: rgb(100, 10, 100)">&gt;</span>, you'll need C++11 or higher standard compliant compiler and STL.<br>
+And holding a strong belief in `<span style="color: rgb(0, 100, 0)">std</span>::<span style="color: rgb(100, 20, 200)">enable_if</span>`s.<br>
+
+<h2>Is using <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(20, 150, 20)">cmath</span><span style="color: rgb(100, 10, 100)">&gt;</span> *just for constants* considered as a bad practice if I have C++20 compliant compiler?</h2>
+Yes. But I should emphasize that it's bad practice "if you have C++20 compliant compiler and STL". Since a lot of project still relies on ancient C++;<br>
+can't say it's really "bad practice", I can't blame them for not using that, there are bigger problems than this though. :)<br>
+Also, <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(20, 150, 20)">cmath</span><span style="color: rgb(100, 10, 100)">&gt;</span> is really good header.
+It will bring us more (already have some <a href="https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4950.pdf#page=1477" target="_tab">[cmath.syn]</a>) `<span style="color: rgb(100, 20, 200)">constexpr</span>` math functions with C++26; also it's regularly updated with new functions.<br>
+<br>
+I have no source for this but probably using <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(20, 150, 20)">numbers</span><span style="color: rgb(100, 10, 100)">&gt;</span>
+instead of <span style="color: rgb(100, 10, 100)">&lt;</span><span style="color: rgb(20, 150, 20)">cmath</span><span style="color: rgb(100, 10, 100)">&gt;</span> *just for constants*
+would probably reduce binary size enough if you are not using modules.<br>
+<h2>So, why should I use that header?</h2>
+<ul>
+  <li>Not rely on `#<span style="color: rgb(100, 100, 200)">define</span>`</li>
+  <li>Type safety</li>
+  <li>Context and scope awareness</li>
+  <li>Good practice?</li>
+  <li>Why not?</li>
+</ul>
+
+<h3>Notes:</h3>
+* Used <a href="https://wg21.link/n4950">C++23 N4950 final working draft</a>.<br>
+<br>
+* If there is any wrong information or something can be added extra, please go to <a href="https://github.com/ferhatgec/land" target="_tab">repository</a>, and create new pull request. Thank you!<br>
+<br>
+
+</body>
+</html>
