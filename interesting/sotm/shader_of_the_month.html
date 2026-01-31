@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beauty of Shaders // SoTM</title>
+  <style>
+      @font-face {
+          font-family: 'JetBrains Mono';
+          src: url('../../sources/font/JetBrainsMono-Regular.woff2') format('woff2');
+          font-weight: normal;
+          font-style: normal;
+      }
+
+      :root {
+          --bg-color: #0d0d0d;
+          --panel-bg: #161616;
+          --box-bg: #0d0d0d;
+          --text-color: #e0e0e0;
+          --accent-color: #FFD700;
+          --dim-color: #666;
+          --link-color: #4da6ff;
+          --border-color: #333;
+      }
+
+      body.light-mode {
+          --bg-color: #fafafa;
+          --panel-bg: #ffffff;
+          --box-bg: #f4f4f4;
+          --text-color: #222222;
+          --accent-color: #d4af37;
+          --dim-color: #888;
+          --link-color: #0066cc;
+          --border-color: #ddd;
+      }
+
+      body {
+          background-color: var(--bg-color);
+          color: var(--text-color);
+          font-family: 'JetBrains Mono', monospace;
+          margin: 0;
+          padding: 20px;
+          line-height: 1.6;
+          max-width: 950px;
+          margin-left: auto;
+          margin-right: auto;
+          transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          border-bottom: 2px solid var(--border-color);
+          padding-bottom: 20px;
+          margin-bottom: 30px;
+      }
+
+      .header-left {
+          display: flex;
+          align-items: center;
+      }
+
+      .gech-back-icon {
+          margin-right: 20px;
+          transition: transform 0.2s;
+          display: block;
+      }
+
+      .gech-back-icon:hover {
+          transform: scale(1.1);
+      }
+
+      .vertical-divider {
+          width: 1px;
+          height: 40px;
+          background-color: var(--border-color);
+          margin-right: 20px;
+      }
+
+      .logo {
+          width: 64px;
+          height: auto;
+          margin-right: 20px;
+          border-radius: 4px;
+      }
+
+      h1 {
+          font-size: 1.8rem;
+          margin: 0;
+          letter-spacing: -1px;
+          line-height: 1.2;
+      }
+
+      .subtitle {
+          font-size: 0.9rem;
+          color: var(--dim-color);
+          margin-top: 5px;
+      }
+
+      .theme-btn {
+          background: transparent;
+          border: 1px solid var(--border-color);
+          color: var(--dim-color);
+          font-family: inherit;
+          padding: 8px 12px;
+          cursor: pointer;
+          font-size: 0.8rem;
+          border-radius: 4px;
+          transition: all 0.2s;
+          white-space: nowrap;
+      }
+
+      .theme-btn:hover {
+          border-color: var(--text-color);
+          color: var(--text-color);
+          background-color: var(--box-bg);
+      }
+
+      .intro {
+          margin-bottom: 50px;
+          font-size: 0.95rem;
+          border-left: 3px solid var(--dim-color);
+          padding-left: 15px;
+      }
+
+      .month-entry {
+          border: 1px solid var(--border-color);
+          background-color: var(--panel-bg);
+          padding: 20px;
+          margin-bottom: 40px;
+          border-radius: 8px;
+          transition: background-color 0.3s ease;
+      }
+
+      .month-title {
+          font-size: 1.4rem;
+          color: var(--accent-color);
+          border-bottom: 1px dashed var(--dim-color);
+          padding-bottom: 10px;
+          margin-top: 0;
+          margin-bottom: 20px;
+      }
+
+      .awards-container {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 20px;
+      }
+
+      .award-box {
+          background-color: var(--box-bg);
+          border: 1px solid var(--border-color);
+          padding: 15px;
+          transition: background-color 0.3s ease;
+      }
+
+      .award-label {
+          display: block;
+          font-size: 0.8rem;
+          color: var(--dim-color);
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          margin-bottom: 10px;
+      }
+
+      .shader-name {
+          font-size: 1.1rem;
+          font-weight: bold;
+          margin-bottom: 5px;
+          display: block;
+          color: var(--text-color);
+      }
+
+      .author {
+          font-size: 0.9rem;
+          color: var(--link-color);
+          text-decoration: none;
+      }
+      .author:hover { text-decoration: underline; }
+
+      .video-btn {
+          display: inline-block;
+          margin-top: 15px;
+          padding: 8px 12px;
+          background-color: var(--bg-color);
+          color: var(--text-color);
+          text-decoration: none;
+          font-size: 0.8rem;
+          border: 1px solid var(--border-color);
+          transition: all 0.2s;
+          font-family: 'JetBrains Mono', monospace;
+      }
+      .video-btn:hover {
+          background-color: var(--accent-color);
+          color: #000;
+          border-color: var(--accent-color);
+          font-weight: bold;
+      }
+
+      .status-card {
+          grid-column: span 2;
+          background-color: rgba(255, 255, 255, 0.03);
+          border: 1px dashed var(--dim-color);
+          padding: 40px 20px;
+          text-align: center;
+          border-radius: 4px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+      }
+
+      .status-icon {
+          font-size: 2rem;
+          margin-bottom: 15px;
+          opacity: 0.7;
+      }
+
+      .status-text {
+          font-size: 1.1rem;
+          color: var(--text-color);
+          margin-bottom: 5px;
+          font-weight: bold;
+      }
+
+      .status-sub {
+          font-size: 0.9rem;
+          color: var(--dim-color);
+          margin-bottom: 10px;
+      }
+
+      footer {
+          margin-top: 50px;
+          border-top: 1px solid var(--border-color);
+          padding-top: 20px;
+          font-size: 0.8rem;
+          color: var(--dim-color);
+          text-align: center;
+      }
+      a { color: var(--link-color); }
+
+      @media (max-width: 700px) {
+          .awards-container { grid-template-columns: 1fr; }
+          .status-card { grid-column: span 1; }
+
+          header {
+              flex-direction: column;
+              align-items: flex-start;
+          }
+          .header-left {
+              width: 100%;
+              margin-bottom: 15px;
+              flex-wrap: wrap;
+          }
+          .theme-btn {
+              width: 100%;
+              text-align: center;
+          }
+          .vertical-divider {
+              display: none;
+          }
+          .gech-back-icon { margin-right: 15px; }
+          .logo { margin-right: 15px; }
+      }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <a href="../../index.html" class="gech-back-icon" title="back to gechland homepage">
+      <img src="../../sources/gechland/gechers.png" alt="gechland homepage" width="64" height="64">
+    </a>
+
+    <div class="vertical-divider"></div>
+
+    <img src="beauty_of_shaders_logo.png" alt="beauty of shaders logo" class="logo">
+
+    <div>
+      <h1>beauty of shaders</h1>
+      <div class="subtitle">explore beautiful fragment shaders from creative people.</div>
+    </div>
+  </div>
+
+  <button id="theme-toggle" class="theme-btn">
+    [ LIGHT MODE ]
+  </button>
+</header>
+
+<section class="intro">
+  <p>
+    <strong>what is this?</strong><br>
+    beauty of shaders is a monthly contest dedicated to the art of GLSL creative coding.
+    we archive, showcase, and award the most visually stunning shaders created by the community.
+  </p>
+</section>
+
+<section id="archive">
+
+  <article class="month-entry">
+    <h2 class="month-title">FEBRUARY 2026</h2>
+
+    <div class="awards-container">
+      <div class="status-card">
+        <div class="status-icon">👀</div>
+        <div class="status-text">scouting in progress</div>
+        <div class="status-sub">
+          we are currently selecting and processing the nominees for the next cycle.<br>
+          check back later for the showcase.
+        </div>
+
+        <!-- will be changed at the beginning of the voting phase -->
+        <a href="https://youtube.com/@beautyofshaders/community" target="_blank" class="video-btn">
+          [ CAST YOUR VOTE ]
+        </a>
+      </div>
+    </div>
+  </article>
+
+<!--  <article class="month-entry">-->
+<!--    <h2 class="month-title">FEBRUARY 2026</h2>-->
+
+<!--    <div class="awards-container">-->
+
+<!--      <div class="award-box">-->
+<!--        <span class="award-label">🏆 Community Choice</span>-->
+<!--        <span class="shader-name">Community's Choice Shader</span>-->
+<!--        <a href="https://shadertoy.com/user/USERNAME" target="_blank" class="author">by USERNAME</a>-->
+<!--        <br>-->
+<!--        <a href="https://youtube.com/watch?v=VIDEO_ID" target="_blank" class="video-btn">-->
+<!--          [ WATCH ON YOUTUBE ]-->
+<!--        </a>-->
+<!--      </div>-->
+
+<!--      <div class="award-box">-->
+<!--        <span class="award-label">🎵 Editor's Choice</span>-->
+<!--        <span class="shader-name">Editor's Choice Shader</span>-->
+<!--        <a href="https://shadertoy.com/user/USERNAME" target="_blank" class="author">by USERNAME</a>-->
+<!--        <br>-->
+<!--        <a href="https://youtube.com/watch?v=VIDEO_ID" target="_blank" class="video-btn">-->
+<!--          [ WATCH ON YOUTUBE ]-->
+<!--        </a>-->
+<!--      </div>-->
+
+<!--    </div>-->
+<!--  </article>-->
+
+</section>
+
+<footer>
+  <a href="https://youtube.com/@beautyofshaders" target="_blank">youtube</a> // <a href="https://github.com/ferhatgec" target="_blank">github</a>
+</footer>
+
+<script>
+    const btn = document.getElementById('theme-toggle');
+    const body = document.body;
+    const savedTheme = localStorage.getItem('theme');
+
+    if (savedTheme === 'light') {
+        body.classList.add('light-mode');
+        btn.innerText = '[ DARK MODE ]';
+    }
+
+    btn.addEventListener('click', () => {
+        body.classList.toggle('light-mode');
+        if (body.classList.contains('light-mode')) {
+            localStorage.setItem('theme', 'light');
+            btn.innerText = '[ DARK MODE ]';
+        } else {
+            localStorage.setItem('theme', 'dark');
+            btn.innerText = '[ LIGHT MODE ]';
+        }
+    });
+</script>
+
+</body>
+</html>
