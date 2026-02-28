@@ -153,6 +153,8 @@
           border: 1px solid var(--border-color);
           padding: 15px;
           transition: background-color 0.3s ease;
+          display: flex;
+          flex-direction: column;
       }
 
       .award-label {
@@ -167,21 +169,32 @@
       .shader-name {
           font-size: 1.1rem;
           font-weight: bold;
-          margin-bottom: 5px;
+          margin-bottom: 2px;
           display: block;
           color: var(--text-color);
       }
 
       .author {
           font-size: 0.9rem;
-          color: var(--link-color);
-          text-decoration: none;
+          color: var(--dim-color);
+          cursor: default;
       }
-      .author:hover { text-decoration: underline; }
+
+      /* Müzik etiketi stili - Link özelliği kaldırıldı */
+      .music-credit {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 0.8rem;
+          color: var(--dim-color);
+          margin-top: 6px;
+          margin-bottom: 15px;
+          cursor: default; /* Tıklanabilir olmadığını belli eder */
+      }
 
       .video-btn {
           display: inline-block;
-          margin-top: 15px;
+          margin-top: auto;
           padding: 8px 12px;
           background-color: var(--bg-color);
           color: var(--text-color);
@@ -190,6 +203,7 @@
           border: 1px solid var(--border-color);
           transition: all 0.2s;
           font-family: 'JetBrains Mono', monospace;
+          text-align: center;
       }
       .video-btn:hover {
           background-color: var(--accent-color);
@@ -263,6 +277,29 @@
           .gech-back-icon { margin-right: 15px; }
           .logo { margin-right: 15px; }
       }
+
+      .full-showcase-btn {
+          grid-column: span 2; /* 2 sütunu birden kapla */
+          margin-top: 10px;
+          padding: 12px;
+          background-color: rgba(255, 215, 0, 0.05); /* Hafif bir vurgu */
+          color: var(--accent-color);
+          text-align: center;
+          text-decoration: none;
+          border: 1px solid var(--accent-color);
+          font-size: 0.9rem;
+          font-weight: bold;
+          transition: all 0.2s;
+      }
+
+      .full-showcase-btn:hover {
+          background-color: var(--accent-color);
+          color: #000;
+      }
+
+      @media (max-width: 700px) {
+          .full-showcase-btn { grid-column: span 1; }
+      }
   </style>
 </head>
 <body>
@@ -299,7 +336,7 @@
 <section id="archive">
 
   <article class="month-entry">
-    <h2 class="month-title">FEBRUARY 2026</h2>
+    <h2 class="month-title">MARCH 2026</h2>
 
     <div class="awards-container">
       <div class="status-card">
@@ -310,7 +347,6 @@
           check back later for the showcase.
         </div>
 
-        <!-- will be changed at the beginning of the voting phase -->
         <a href="https://youtube.com/@beautyofshaders/community" target="_blank" class="video-btn">
           [ CAST YOUR VOTE ]
         </a>
@@ -318,33 +354,48 @@
     </div>
   </article>
 
-<!--  <article class="month-entry">-->
-<!--    <h2 class="month-title">FEBRUARY 2026</h2>-->
+  <article class="month-entry">
+    <h2 class="month-title">FEBRUARY 2026</h2>
 
-<!--    <div class="awards-container">-->
+    <div class="awards-container">
 
-<!--      <div class="award-box">-->
-<!--        <span class="award-label">🏆 Community Choice</span>-->
-<!--        <span class="shader-name">Community's Choice Shader</span>-->
-<!--        <a href="https://shadertoy.com/user/USERNAME" target="_blank" class="author">by USERNAME</a>-->
-<!--        <br>-->
-<!--        <a href="https://youtube.com/watch?v=VIDEO_ID" target="_blank" class="video-btn">-->
-<!--          [ WATCH ON YOUTUBE ]-->
-<!--        </a>-->
-<!--      </div>-->
+      <div class="award-box">
+        <span class="award-label">🏆 Community Choice</span>
+        <span class="shader-name">Wetland</span>
+        <span class="author">by lerrain</span>
 
-<!--      <div class="award-box">-->
-<!--        <span class="award-label">🎵 Editor's Choice</span>-->
-<!--        <span class="shader-name">Editor's Choice Shader</span>-->
-<!--        <a href="https://shadertoy.com/user/USERNAME" target="_blank" class="author">by USERNAME</a>-->
-<!--        <br>-->
-<!--        <a href="https://youtube.com/watch?v=VIDEO_ID" target="_blank" class="video-btn">-->
-<!--          [ WATCH ON YOUTUBE ]-->
-<!--        </a>-->
-<!--      </div>-->
+        <div class="music-credit">
+          <span>🎵</span>
+          <span>C418 - Aria Math</span>
+        </div>
 
-<!--    </div>-->
-<!--  </article>-->
+        <a href="https://www.youtube.com/watch?v=9Qdf4IlQCs8&list=PLQVgkUQi00xMdNjn_AGkdGpf5nywGJy7F" target="_blank" class="video-btn">
+          [ WATCH ON YOUTUBE ]
+        </a>
+
+      </div>
+
+      <div class="award-box">
+        <span class="award-label">🎵 Editor's Choice</span>
+        <span class="shader-name">Celestial Dawn</span>
+        <span class="author">by lerrain</span>
+
+        <div class="music-credit">
+          <span>🎵</span>
+          <span>Ferhat Geçdoğan - celestial dawn</span>
+        </div>
+
+        <a href="https://www.youtube.com/watch?v=4vxlFHfqT54&list=PLQVgkUQi00xMdNjn_AGkdGpf5nywGJy7F&index=8" target="_blank" class="video-btn">
+          [ WATCH ON YOUTUBE ]
+        </a>
+      </div>
+
+
+      <a href="https://www.youtube.com/watch?v=jlYnH8fN3U0&list=PLQVgkUQi00xNX9tOKwTZo6qV2a9qwS6ZS" target="_blank" class="full-showcase-btn">
+        [ WATCH FEBRUARY FINALE ]
+      </a>
+    </div>
+  </article>
 
 </section>
 
